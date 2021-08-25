@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import MovieFilterIcon from '@material-ui/icons/MovieFilter';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 const useStyles = makeStyles({
     root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
         boxShadow: '1px -1px 5px 0px rgba(0,0,0,0.15);',
         background:"rgb(252, 32, 70)",
         '& svg,span':{
-            color:"white"
+            color: "white"
         },
         borderTopRightRadius:"20px",
         borderTopLeftRadius:"20px",
@@ -42,7 +43,7 @@ export default function Navbar() {
             <BottomNavigationAction label="Movie" value="movies" icon={<MovieFilterIcon />} />
             <BottomNavigationAction label="Groups" value="groups" icon={<PeopleAltIcon />} />
             <BottomNavigationAction label="Profile" value="profile" icon={<AccountBoxIcon />} />
-            <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+            <BottomNavigationAction label="Activity" value="activity" icon={<FitnessCenterIcon />} />
         </BottomNavigation>
     );
 }

@@ -133,13 +133,6 @@ export default function MoviePage() {
                 direction="row"
                 alignItems="center"
             >
-                <TextField
-                    id="outlined-helperText"
-                    label="Search Movie"
-                    variant="outlined"
-                    fullWidth
-                    size="small"
-                />
                 {/* <div className={classes.categories}>
                     <div style={{ paddingTop: "10px", paddingBottom: "20px" }}>
 

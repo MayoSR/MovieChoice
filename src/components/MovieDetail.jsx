@@ -224,6 +224,10 @@ export default function MovieDetail() {
         history.go(-1)
     }
 
+    const showAllMovies = () => {
+        history.push("/all")
+    }
+
     return (
         <div className={classes.root}>
             <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
@@ -373,7 +377,7 @@ export default function MovieDetail() {
                         <List className={classes.root}>
                             {[1, 2, 3].map((ele) => {
                                 return <>
-                                    <ListItem alignItems="flex-start" style={{ marginBottom: "10px" }}>
+                                    <ListItem button alignItems="flex-start" style={{ marginBottom: "10px" }} onClick={showReviews}>
                                         <ListItemAvatar>
                                             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                                         </ListItemAvatar>
@@ -429,7 +433,7 @@ export default function MovieDetail() {
                         <Typography variant="h5" gutterBottom>
                             Recommended
                         </Typography>
-                        <Typography variant="caption" gutterBottom style={{ color: "#fc2046" }}>
+                        <Typography variant="caption" gutterBottom style={{ color: "#fc2046" }} onClick={showAllMovies}>
                             See all
                         </Typography>
                     </Grid>

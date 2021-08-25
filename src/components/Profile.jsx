@@ -17,6 +17,10 @@ import PersonIcon from '@material-ui/icons/Person';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import EmailIcon from '@material-ui/icons/Email';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
+import SecurityIcon from '@material-ui/icons/Security';
 
 const useStyles = makeStyles({
     root: {
@@ -66,7 +70,7 @@ export default function Profile(props) {
                 <Divider />
                 <ListItem>
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
-                        <Typography variant="h6">
+                        <Typography variant="body1">
                             Details
                         </Typography>
                     </Box>
@@ -74,7 +78,17 @@ export default function Profile(props) {
                 <Divider />
                 <ListItem className={classes.nestedPadding}>
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
-                        <Typography variant="body2">
+                        <Typography variant="subtitle2">
+                            GeorgeRussell63@gmail.com
+                        </Typography>
+                        <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
+                            <EmailIcon />
+                        </IconButton>
+                    </Box>
+                </ListItem>
+                <ListItem className={classes.nestedPadding}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
+                        <Typography variant="subtitle2">
                             GeorgeRussell63
                         </Typography>
                         <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
@@ -86,7 +100,7 @@ export default function Profile(props) {
                 <ListItem className={classes.nestedPadding}>
 
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
-                        <Typography variant="body2">
+                        <Typography variant="subtitle2">
                             George Russell
                         </Typography>
                         <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
@@ -97,7 +111,7 @@ export default function Profile(props) {
                 <Divider />
                 <ListItem button onClick={goToFavorites}>
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }} >
-                        <Typography variant="h6">
+                        <Typography variant="body1">
                             Liked Movies
                         </Typography>
                         <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
@@ -114,11 +128,44 @@ export default function Profile(props) {
                 <Divider />
                 <ListItem button>
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
-                        <Typography variant="h6">
+                        <Typography variant="body1">
                             Friends
                         </Typography>
                         <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
                             <PeopleAltIcon fontSize={"medium"} />
+                        </IconButton>
+                    </Box>
+                </ListItem>
+                <Divider />
+                <ListItem button>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
+                        <Typography variant="body1">
+                            Help and Support
+                        </Typography>
+                        <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
+                            <LiveHelpIcon fontSize={"medium"} />
+                        </IconButton>
+                    </Box>
+                </ListItem>
+                <Divider />
+                <ListItem button>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
+                        <Typography variant="body1">
+                            FAQs
+                        </Typography>
+                        <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
+                            <QuestionAnswerIcon fontSize={"medium"} />
+                        </IconButton>
+                    </Box>
+                </ListItem>
+                <Divider />
+                <ListItem button>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
+                        <Typography variant="body1">
+                            Security
+                        </Typography>
+                        <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
+                            <SecurityIcon fontSize={"medium"} />
                         </IconButton>
                     </Box>
                 </ListItem>
