@@ -100,15 +100,21 @@ export default function ReviewsList(props) {
                     return (
                         <>
                             <ListItem button>
-                                <Box display="flex" >
-                                    <Box display="flex" style={{ marginRight: "20px" }}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
-                                    </Box>
-                                    <Box flexDirection="column">
+                                <Box display="flex" flexDirection="column" style={{paddingTop:"10px"}}>
+                                    <Box display="flex">
+                                        <Box display="flex" style={{ marginRight: "20px" }}>
+                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                                        </Box>
                                         <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
-                                            <Typography variant="body1" display="block" align={"left"}>
-                                                {person}
-                                            </Typography>
+                                            <Box display="flex" flexDirection="column">
+                                                <Typography variant="body1" display="block" align={"left"}>
+                                                    {person}
+                                                </Typography>
+                                                <Typography variant="caption" display="block" align={"left"} style={{"color":"#828282"}}>
+                                                    2 days ago
+                                                </Typography>
+                                            </Box>
+
                                             <Box display="flex" className={classes.ratingStar}>
                                                 <StarIcon />
                                                 <StarIcon />
@@ -117,14 +123,13 @@ export default function ReviewsList(props) {
                                                 <StarOutlineIcon />
                                             </Box>
                                         </Box>
-                                        <div style={{ paddingTop: "10px", paddingBottom: "10px" }}>
-                                            <Divider />
-                                        </div>
-                                        <Box>
-                                            <Typography variant="caption" display="block" align={"left"}>
-                                                SpiderMan Homecoming is one of the most fun, exciting, and easily rewatchable films in the entire MCU. Tom Holland has a great performance as a young, inexperienced adaptation of Peter Parker.
-                                            </Typography>
-                                        </Box>
+                                    </Box>
+                                    <div style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+                                    </div>
+                                    <Box>
+                                        <Typography variant="caption" display="block" align={"left"}>
+                                            SpiderMan Homecoming is one of the most fun, exciting, and easily rewatchable films in the entire MCU. Tom Holland has a great performance as a young, inexperienced adaptation of Peter Parker.
+                                        </Typography>
                                     </Box>
                                 </Box>
 

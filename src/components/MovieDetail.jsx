@@ -23,6 +23,8 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import TvIcon from '@material-ui/icons/Tv';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
 const useStyles = makeStyles({
     root: {
@@ -197,6 +199,18 @@ const useStyles = makeStyles({
         marginRight: "auto",
         display: "flex",
         justifyContent: "center",
+    },
+    movieUserTabs:{
+        position: "absolute",
+        top: "40px",
+        right: "20px",
+        zIndex: "20",
+        display:"flex",
+        flexDirection:"column",
+        '& svg':{
+            color:"#fc2046",
+            marginBottom:"20px",
+        }
     }
 });
 export default function MovieDetail() {
@@ -233,6 +247,11 @@ export default function MovieDetail() {
             <IconButton color="primary" aria-label="go back" className={classes.backButton} onClick={goBack}>
                 <ArrowBackIcon fontSize={"large"} />
             </IconButton>
+            <div className={classes.movieUserTabs}>
+                <FavoriteBorderIcon />
+                <TvIcon />
+                <PlaylistAddIcon />
+            </div>
             <div className={classes.imageBackdrop}>
                 <img src="/images/spiderman.jpg" alt="poster backdrop" />
                 <div className={classes.imageForedrop}>
@@ -272,9 +291,6 @@ export default function MovieDetail() {
                             <StarIcon />
                             <StarIcon />
                             <StarOutlineIcon />
-                        </Box>
-                        <Box>
-                            <FavoriteBorderIcon style={{"color":"#fc2046"}} fontSize={"medium"} />
                         </Box>
                     </Grid>
                     <Typography variant="h5" gutterBottom className={classes.addToPlaylistText}>
