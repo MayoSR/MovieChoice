@@ -16,6 +16,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import CancelIcon from '@material-ui/icons/Cancel';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
@@ -49,7 +50,17 @@ const useStyles = makeStyles((theme) => ({
             color: "white",
             borderColor: "rgb(252, 32, 70)"
         }
-    }
+    },
+    avatarGroup: {
+        '& > div': {
+            height: "30px",
+            width: "30px",
+            fontSize: "14px",
+            backgroundColor: "#fc2046",
+            marginRight: "3px",
+            border: 0
+        },
+    },
 
 }));
 
@@ -68,6 +79,12 @@ export default function FriendsList(props) {
 
     return (
         <List className={classes.backDrop}>
+            <ListItem display="flex" alignItems="center">
+                <Typography variant="h5" display="block" gutterBottom>
+                    Add a Friend
+                </Typography>
+            </ListItem>
+            <Divider />
             <ListItem >
                 <Box display="flex" alignItems="center" style={{ width: "100%" }}>
 
@@ -79,20 +96,70 @@ export default function FriendsList(props) {
                 </Box>
             </ListItem>
             <Divider />
+            {/* <ListItem >
+                <AvatarGroup max={4} className={classes.avatarGroup}>
+                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                    <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                    <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+                </AvatarGroup>
+            </ListItem> */}
+            <ListItem display="flex" alignItems="center">
+                <Typography variant="h5" display="block" gutterBottom>
+                    Friend Requests
+                </Typography>
+            </ListItem>
+            <Divider />
+            {["Anne George", "Beth Chase", "Cathy Jones"].map((person) => {
+
+                return (
+                    <>
+                        <ListItem>
+                            <Box display="flex" style={{ width: "100%", padding: "8px 0px" }} justifyContent="space-between" >
+                                <Box display="flex" alignItems="center">
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} style={{ marginRight: "20px" }} />
+                                    <ListItemText primary={person} secondary={person+"63"} className={classes.listItemTextStyle} />
+                                </Box>
+                                <Box display="flex" alignItems="center">
+                                    <Button variant="outlined" color="primary" size={"small"} style={{ fontSize: "0.55rem" }}>
+                                        Accept
+                                    </Button>
+                                </Box>
+                            </Box>
+                        </ListItem>
+                        <Divider />
+                    </>
+                )
+
+            })}
+            
+            <ListItem>
+                <Button variant="outlined" color="secondary" fullWidth size={"small"}>
+                    See more
+                </Button>
+            </ListItem>
+            <Divider />
+            <ListItem display="flex" alignItems="center">
+                <Typography variant="h5" display="block" gutterBottom>
+                    Friends
+                </Typography>
+            </ListItem>
+            <Divider />
             {["Anne George", "Beth Chase", "Cathy Jones", "John Joestar", "James Rodriguez", "Jimmy Neutron"].map((person) => {
 
                 return (
                     <>
-                        <ListItem button>
-                            <Box display="flex" style={{ marginRight: "20px",width:"100%",padding:"8px 0px" }} justifyContent="space-between" >
+                        <ListItem>
+                            <Box display="flex" style={{ width: "100%", padding: "8px 0px" }} justifyContent="space-between" >
                                 <Box display="flex" alignItems="center">
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} style={{marginRight:"20px"}} />
-                                    <ListItemText primary={person} className={classes.listItemTextStyle} />
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} style={{ marginRight: "20px" }} />
+                                    <ListItemText primary={person} secondary={person+"63"} className={classes.listItemTextStyle} />
                                 </Box>
-                                <Box>
-                                    <IconButton style={{padding:0}}>
-                                        <CancelIcon />
-                                    </IconButton>
+                                <Box display="flex" alignItems="center">
+                                    <Button variant="outlined" color="primary" size={"small"} style={{ fontSize: "0.55rem" }}>
+                                        Remove
+                                    </Button>
                                 </Box>
                             </Box>
                         </ListItem>

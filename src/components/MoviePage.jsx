@@ -26,6 +26,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import TvIcon from '@material-ui/icons/Tv';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
@@ -159,11 +160,11 @@ const useStyles = makeStyles({
             color: "#fc2046",
         }
     },
-    posterButtons:{
-        padding:"5px",
-        borderRadius:"5px",
-        background:"rgba(0,0,0,0.8)",
-        marginBottom:"10px"
+    posterButtons: {
+        padding: "5px",
+        borderRadius: "5px",
+        background: "rgba(0,0,0,0.8)",
+        marginBottom: "10px"
     }
 
 
@@ -171,6 +172,7 @@ const useStyles = makeStyles({
 export default function MoviePage() {
     const classes = useStyles();
     const history = useHistory();
+    const moviesList = useSelector(state => state.movies)
     const [selectedCategory, setSelectedCategory] = React.useState({
         "All": 1, "Romance": 0, "Comedy": 0, "Thriller": 0, "Action": 0, "Adventure": 0, "Science Fiction": 0, "Drama": 0
     })
@@ -188,8 +190,8 @@ export default function MoviePage() {
         setSelectedCategory({ ...selectedCategory, [category]: 1 })
     }
 
-    const getMovieDetails = () => {
-        history.push("/detail")
+    const getMovieDetails = (movie) => {
+        history.push({ pathname: "/detail", state: { "movie": movie } })
     }
 
     const showAllMovies = () => {
@@ -231,27 +233,40 @@ export default function MoviePage() {
 
                     <div className={classes.wideCategoriesList}>
                         {
-                            ["interstellar", "starwars", "spiderman", "starwars", "batman", "batman2"].map((movieName) => {
+                            moviesList.map((movie) => {
 
-                                return <div className={classes.posterDetails} onClick={getMovieDetails}>
-                                    <img src={"/images/wide/" + movieName + ".jpg"} alt={movieName} />
+                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
+                                    <img src={"/images/wide/" + movie.poster + ".jpg"} alt={movie.name} />
                                     <div className={classes.posterText}>
                                         <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
-                                            Interstellar
+                                            {movie.name}
                                         </Typography>
                                         <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
                                             <Box>
-                                                <StarIcon />
-                                                <StarIcon />
-                                                <StarIcon />
-                                                <StarIcon />
-                                                <StarOutlineIcon />
+                                                {
+                                                    new Array(Math.floor(movie.rating / 2)).fill(1, 0, Math.floor(movie.rating / 2)).map(() => { return <StarIcon /> })
+                                                }
+                                                {
+                                                    new Array(5 - Math.floor(movie.rating / 2)).fill(1, 0, (5 - Math.floor(movie.rating / 2))).map(() => { return <StarOutlineIcon /> })
+                                                }
+
                                             </Box>
                                             <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
                                             <Typography variant="subtitle2" display="block" className={classes.addToPlaylistText}>
-                                                2017
+                                                {movie.releaseYear}
                                             </Typography>
                                         </Grid>
+
+                                    </div>
+                                    <div className={classes.movieUserTabs} style={{ right: "10px" }}>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <FavoriteBorderIcon />
+                                        </IconButton>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <PlaylistAddIcon />
+                                        </IconButton>
 
                                     </div>
                                 </div>
@@ -292,23 +307,23 @@ export default function MoviePage() {
                     </Grid>
                     <div className={classes.categoriesList}>
                         {
-                            ["civil_war", "detective_pikachu", "infinity_war", "jurassic_world", "lightning_thief", "spiderman", "social_network", "interstellar"].map((movieName) => {
+                            moviesList.map((movie) => {
 
-                                return <div className={classes.posterDetails} onClick={getMovieDetails}>
+                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
                                     <div>
-                                        <img src={"/images/" + movieName + ".jpg"} alt={movieName} />
+                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
                                     </div>
                                     <div className={classes.ratingContainer}>
                                         <div className={classes.movieRating}>
                                             <StarRateIcon />
                                             <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                9.4
+                                                {movie.rating}
                                             </Typography>
                                         </div>
                                     </div>
                                     <div style={{ "height": "30px", width: "155px" }}>
                                         <Typography variant="body2" display="block" gutterBottom align={"center"}>
-                                            {movieName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase())}
+                                            {movie.name}
                                         </Typography>
                                     </div>
                                     <div className={classes.movieUserTabs}>
@@ -327,46 +342,41 @@ export default function MoviePage() {
                         }
                     </div>
                 </div>
-                <div className={classes.categories}>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
+                <div className={classes.categoriesList}>
+                    {
+                        moviesList.map((movie) => {
 
-                        <Typography variant="h5" gutterBottom>
-                            Trending
-                        </Typography>
-                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#fc2046" }}>
-                            See all
-                        </Typography>
-                    </Grid>
-                    <div className={classes.categoriesList}>
-                        {
-                            ["lightning_thief", "spiderman", "social_network", "interstellar", "civil_war", "detective_pikachu", "infinity_war", "jurassic_world",].map((movieName) => {
-
-                                return <div className={classes.posterDetails} onClick={getMovieDetails}>
-                                    <div>
-                                        <img src={"/images/" + movieName + ".jpg"} alt={movieName} />
-                                    </div>
-                                    <div className={classes.ratingContainer}>
-                                        <div className={classes.movieRating}>
-                                            <StarRateIcon />
-                                            <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                9.4
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"}>
-                                            {movieName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase())}
+                            return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
+                                <div>
+                                    <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
+                                </div>
+                                <div className={classes.ratingContainer}>
+                                    <div className={classes.movieRating}>
+                                        <StarRateIcon />
+                                        <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
+                                            {movie.rating}
                                         </Typography>
                                     </div>
                                 </div>
-                            })
-                        }
-                    </div>
+                                <div style={{ "height": "30px", width: "155px" }}>
+                                    <Typography variant="body2" display="block" gutterBottom align={"center"}>
+                                        {movie.name}
+                                    </Typography>
+                                </div>
+                                <div className={classes.movieUserTabs}>
+                                    <IconButton className={classes.posterButtons}>
+
+                                        <FavoriteBorderIcon />
+                                    </IconButton>
+                                    <IconButton className={classes.posterButtons}>
+
+                                        <PlaylistAddIcon />
+                                    </IconButton>
+
+                                </div>
+                            </div>
+                        })
+                    }
                 </div>
             </Grid>
             <br></br>

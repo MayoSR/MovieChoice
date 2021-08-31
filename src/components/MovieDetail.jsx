@@ -20,11 +20,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import TvIcon from '@material-ui/icons/Tv';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
@@ -202,8 +203,8 @@ const useStyles = makeStyles({
     },
     movieUserTabs: {
         position: "absolute",
-        top: "40px",
-        right: "20px",
+        top: "10px",
+        right: "25px",
         zIndex: "20",
         display: "flex",
         flexDirection: "column",
@@ -218,16 +219,19 @@ const useStyles = makeStyles({
         marginBottom: "10px"
     }
 });
-export default function MovieDetail() {
+export default function MovieDetail(props) {
     const classes = useStyles();
     const history = useHistory()
+    const location = useLocation();
+    const movie = location.state.movie
+    const moviesList = useSelector(state => state.movies)
 
     const opts = {
         height: '250',
         width: '100%',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
+            autoplay: 0,
         },
     };
 
@@ -235,8 +239,8 @@ export default function MovieDetail() {
         history.push("/reviews")
     }
 
-    const getMovieDetails = () => {
-        history.push("/detail")
+    const getMovieDetails = (movie) => {
+        history.push({ pathname: "/detail", state: { "movie": movie } })
     }
 
     const goBack = () => {
@@ -269,48 +273,26 @@ export default function MovieDetail() {
 
             </div>
             <div className={classes.imageBackdrop}>
-                <img src="/images/spiderman.jpg" alt="poster backdrop" />
+                <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
                 <div className={classes.imageForedrop}>
 
                 </div>
             </div>
             <div className={classes.foredrop}>
                 <br></br>
-                {/* <Grid
-                    container
-                    direction="row"
-                    justifyContent="center"
-                    alignItems="center">
-                    <Grid flexDirection="column" justifyContent="center" alignItems="center">
-                        <IconButton color="primary" aria-label="add to shopping cart">
-                            <FavoriteBorderIcon fontSize={"large"} />
-                        </IconButton>
-                        <Typography variant="caption" display="block" gutterBottom className={classes.addToPlaylistText}>
-                            Favorite
-                        </Typography>
-                    </Grid>
-                    <div style={{ width: "40px" }} />
-                    <Grid flexDirection="column" justifyContent="center" alignItems="center">
-                        <IconButton color="primary" aria-label="add to shopping cart">
-                            <LibraryAddIcon fontSize={"large"} />
-                        </IconButton>
-                        <Typography variant="caption" display="block" gutterBottom className={classes.addToPlaylistText}>
-                            Share
-                        </Typography>
-                    </Grid>
-                </Grid> */}
                 <Grid style={{ padding: "0 20px" }}>
                     <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
                         <Box>
-                            <StarIcon />
-                            <StarIcon />
-                            <StarIcon />
-                            <StarIcon />
-                            <StarOutlineIcon />
+                            {
+                                new Array(Math.floor(movie.rating / 2)).fill(1, 0, Math.floor(movie.rating / 2)).map(() => { return <StarIcon /> })
+                            }
+                            {
+                                new Array(5 - Math.floor(movie.rating / 2)).fill(1, 0, (5 - Math.floor(movie.rating / 2))).map(() => { return <StarOutlineIcon /> })
+                            }
                         </Box>
                     </Grid>
-                    <Typography variant="h5" gutterBottom className={classes.addToPlaylistText}>
-                        Spider-Man : Homecoming
+                    <Typography variant="h4" gutterBottom className={classes.addToPlaylistText}>
+                        {movie.name}
                     </Typography>
                     <Grid
                         container
@@ -319,16 +301,16 @@ export default function MovieDetail() {
                         <TimerIcon fontSize={"small"} className={classes.runtime} />
                         <div style={{ padding: "2px" }} />
                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
-                            2h 14mins
+                            {movie.runtime}
                         </Typography>
                         <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
                         <StarRateIcon fontSize={"medium"} className={classes.ratingStar} />
                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
-                            4.1
+                            {movie.rating}
                         </Typography>
                         <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
-                            2017
+                            {movie.releaseYear}
                         </Typography>
                     </Grid>
                     <br></br>
@@ -345,7 +327,7 @@ export default function MovieDetail() {
                         About
                     </Typography>
                     <Typography variant="subtitle2" display="block" align={"left"}>
-                        Discussions for a sequel to Spider-Man: Homecoming began by October 2016, and the project was confirmed later that year. Holland, Watts, and the writers were all set to return by the end of 2017. In 2018, Jackson and Gyllenhaal joined the cast as Fury and Mysterio, respectively. Holland revealed the sequel's title ahead of filming, which began that July and took place in England, the Czech Republic, Italy, and the New York metropolitan area. Production wrapped in October 2018. The marketing campaign was the most expensive for a film ever and attempted to avoid revealing spoilers for Avengers: Endgame prior to its April 2019 release.
+                        {movie.about}
                     </Typography>
                 </Grid>
                 <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "white" }}>
@@ -353,10 +335,10 @@ export default function MovieDetail() {
                 </Typography>
                 <div className={classes.photosList}>
                     {
-                        ["homecoming_1", "homecoming_2", "homecoming_3", "homecoming_4", "homecoming_5"].map((photo) => {
+                        Array.from(Array(movie.photosCount).keys()).map((photoIndex) => {
 
                             return <div className={classes.posterDetails}>
-                                <img src={"/images/photos/" + photo + ".jpg"} alt={photo} />
+                                <img src={"/images/photos/" + movie.poster + "/" + (photoIndex + 1) + ".jpg"} alt={movie.poster + photoIndex} />
                             </div>
                         })
                     }
@@ -366,7 +348,7 @@ export default function MovieDetail() {
                         Watch Trailer
                     </Typography>
                     <div style={{ width: "100%", overflow: "hidden" }}>
-                        <YouTube videoId="Nt9L1jCKGnE" opts={opts} />
+                        <YouTube videoId={movie.youtube} opts={opts} />
                     </div>
                 </Grid>
                 <br></br>
@@ -375,7 +357,7 @@ export default function MovieDetail() {
                 </Typography>
                 <div className={classes.categoriesList} style={{ paddingLeft: "10px" }}>
                     {
-                        ["tom_holland", "robert_downey_jr", "zendaya", "jake_gyllenhaal"].map((actor) => {
+                        movie.cast.map((actor) => {
 
                             return <div className={classes.posterDetails}>
                                 <div className={classes.castPicture}>
@@ -407,7 +389,7 @@ export default function MovieDetail() {
                     </Grid>
                     <div className={classes.reviewsList}>
                         <List className={classes.root}>
-                            {[1, 2, 3].map((ele) => {
+                            {movie.reviews.map((review) => {
                                 return <>
                                     <ListItem button alignItems="flex-start" style={{ marginBottom: "10px" }} onClick={showReviews}>
                                         <ListItemAvatar>
@@ -426,7 +408,7 @@ export default function MovieDetail() {
                                                         className={classes.inline}
                                                         color="textPrimary"
                                                     >
-                                                        Ali Connors
+                                                        {review.reviewer}
                                                     </Typography>
                                                     <Box style={{ display: "flex", alignItems: "center" }}>
                                                         <StarRateIcon className={classes.ratingStar} />
@@ -436,14 +418,14 @@ export default function MovieDetail() {
                                                             className={classes.inline}
                                                             color="textPrimary"
                                                         >
-                                                            4.5
+                                                            {review.rating}
                                                         </Typography>
                                                     </Box>
                                                 </Grid>
                                             }
                                             secondary={
                                                 <React.Fragment>
-                                                    {" Great movie, must watch for all Spider-Man fans!"}
+                                                    {review.review}
                                                 </React.Fragment>
                                             }
                                         />
@@ -471,24 +453,35 @@ export default function MovieDetail() {
                     </Grid>
                     <div className={classes.moviesCategoriesList}>
                         {
-                            ["civil_war", "detective_pikachu", "infinity_war", "jurassic_world", "lightning_thief", "spiderman", "social_network", "interstellar"].map((movieName) => {
+                            moviesList.map((movie) => {
 
-                                return <div className={classes.posterDetails} onClick={getMovieDetails}>
+                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
                                     <div>
-                                        <img src={"/images/" + movieName + ".jpg"} alt={movieName} />
+                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
                                     </div>
                                     <div className={classes.ratingContainer}>
                                         <div className={classes.movieRating}>
                                             <StarRateIcon />
                                             <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                9.4
+                                                {movie.rating}
                                             </Typography>
                                         </div>
                                     </div>
                                     <div style={{ "height": "30px", width: "155px" }}>
                                         <Typography variant="body2" display="block" gutterBottom align={"center"}>
-                                            {movieName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase())}
+                                            {movie.name}
                                         </Typography>
+                                    </div>
+                                    <div className={classes.movieUserTabs}>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <FavoriteBorderIcon />
+                                        </IconButton>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <PlaylistAddIcon />
+                                        </IconButton>
+
                                     </div>
                                 </div>
                             })

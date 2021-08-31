@@ -36,7 +36,10 @@ const useStyles = makeStyles({
         background: "#1B1B1B",
         minHeight: "100vh",
         color: "white",
-        padding: "20px"
+        padding: "20px",
+        '& li':{
+            padding:"0px 8px"
+        }
     },
     dialogBanner: {
 
@@ -46,7 +49,11 @@ const useStyles = makeStyles({
     },
     linkColor: {
         color: "rgba(252, 32, 70,1)",
-    }
+    },
+    timestamp:{
+        color:"#828282"
+    },
+    
 });
 
 export default function Activity(props) {
@@ -78,9 +85,11 @@ export default function Activity(props) {
                                     <Typography variant="subtitle2" display="block" align={"left"}>
                                         Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                     </Typography>
+                                    <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>
+                                        16.04
+                                    </Typography>
                                 </Box>
                             </Box>
-                            <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
                         </Box>
                     </ListItem>
                 })}
@@ -100,9 +109,11 @@ export default function Activity(props) {
                                 <Typography variant="subtitle2" display="block" align={"left"}>
                                     Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                 </Typography>
+                                <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>
+                                    3d
+                                </Typography>
                             </Box>
                         </Box>
-                        <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
                     </Box>
                 </ListItem>
             </List>
@@ -120,9 +131,11 @@ export default function Activity(props) {
                                 <Typography variant="subtitle2" display="block" align={"left"}>
                                     Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                 </Typography>
+                                <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>
+                                    17d
+                                </Typography>
                             </Box>
                         </Box>
-                        <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
                     </Box>
                 </ListItem>
             </List>
