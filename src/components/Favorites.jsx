@@ -29,6 +29,7 @@ import Icon from '@material-ui/core/Icon';
 import CloseIcon from '@material-ui/icons/Close';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import WatchedDetail from './WatchedDetail';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
@@ -68,6 +69,7 @@ export default function Favorites(props) {
     const location = useLocation();
     const [open, setOpenState] = React.useState(false);
     const [groupName, setGroupName] = React.useState("");
+    const moviesList = useSelector(state => state.movies)
 
     const goBack = () => {
         history.go(-1)
@@ -106,24 +108,24 @@ export default function Favorites(props) {
                 </Box>
             </Box>
             {
-                ["civil_war", "detective_pikachu", "infinity_war", "jurassic_world", "lightning_thief", "spiderman", "social_network", "interstellar"].map((movieName) => {
+                moviesList.map((movie) => {
 
                     return <Box display="flex" direction="row" className={classes.posterCardDetails} onClick={getMovieDetails} justifyContent="space-between">
-                        <img src={"/images/" + movieName + ".jpg"} alt={movieName} />
+                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
                         <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Box display="flex" flexDirection="column">
                                     <Typography variant="subtitle1" display="block" align={"left"}>
-                                        {movieName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase())}
+                                        {movie.name}
                                     </Typography>
                                     <Box display="flex" alignItems="center" justifyContent="flex-start" style={{color:"#828282"}}>
                                         <StarRateIcon fontSize={"medium"} className={classes.ratingStar} />
                                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
-                                            4.1
+                                            {movie.rating}
                                         </Typography>
                                         <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
                                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
-                                            2017
+                                            {movie.releaseYear}
                                         </Typography>
                                     </Box>
 
@@ -135,7 +137,7 @@ export default function Favorites(props) {
                                     </Button>
 
                                     {location.state.groupName !== "My Favorites" ? <Box display="flex" alignItems="center" style={{color:"#828282"}}>
-                                        <IconButton style={{padding:0,color:"#828282"}} onClick={(e) => eventHandle(e,true,movieName)}>
+                                        <IconButton style={{padding:0,color:"#828282"}} onClick={(e) => eventHandle(e,true,movie.name)}>
 
                                             <VisibilityIcon fontSize={"small"} />
                                         </IconButton>
@@ -150,8 +152,8 @@ export default function Favorites(props) {
                             </Box>
 
                             <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
-                            <Typography variant="caption" display="block" align={"left"}>
-                                Discussions for a sequel to Spider-Man: Homecoming began by October 2016, and the project was confirmed later that year.
+                            <Typography variant="caption" display="block" align={"left"} style={{height:"80px",overflow:"hidden"}}>
+                                {movie.about}
                             </Typography>
                             {/* <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
                             <Box display="flex">

@@ -42,7 +42,7 @@ const initialState = {
             youtube: "lB95KLmpLR4",
             rating: 7.7,
             categories:["Biography","Drama"],
-            about: "David Fincher's The Social Network is the stunning tale of a new breed of cultural insurgent: a punk genius who sparked a revolution and changed the face of human interaction for a generation, and perhaps forever. Shot through with emotional brutality and unexpected humor, this superbly crafted film chronicles the formation of Facebook and the battles over ownership that followed upon the website's unfathomable success. With a complex, incisive screenplay by Aaron Sorkin and a brilliant cast including Jesse Eisenberg, Andrew Garfield and Justin Timberlake, The Social Network bears witness to the birth of an idea that rewove the fabric of society even as it unraveled the friendship of its creators.",
+            about: "As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.",
             cast: ["andrew_garfield","jesse_eisenberg","anne_hathaway","zendaya"],
             reviews: [
                 {

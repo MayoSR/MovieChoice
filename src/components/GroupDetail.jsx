@@ -87,7 +87,7 @@ export default function GroupDetail(props) {
                     <Box display="flex" flexDirection="column" alignItems="center" style={{ width: "100%" }}>
                         <Box style={{ overflow: "hidden" }} className={classes.groupDP}>
 
-                            <img src="/images/spiderman.jpg" alt="group dp" />
+                            <img src="/images/photos/amazing_spiderman.jpg" alt="group dp" />
                         </Box>
 
                     </Box>
