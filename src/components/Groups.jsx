@@ -59,6 +59,12 @@ const useStyles = makeStyles({
         marginRight: "5px",
         color: "#828282"
     },
+    ip:{
+        '& input,div,label,fieldset':{
+            color:"white",
+            borderColor:"rgb(252, 32, 70)"
+        }
+    }
 });
 export default function Groups() {
     const classes = useStyles();
@@ -86,7 +92,7 @@ export default function Groups() {
 
     return (
         <div className={classes.root}>
-            <TextField id="outlined-basic" label="Search" variant="outlined" fullWidth size={"small"} />
+            <TextField id="outlined-basic" label="Search" variant="outlined" fullWidth size={"small"} className={classes.ip} />
             <div style={{ paddingTop: "30px", paddingBottom: "20px" }}>
                 <Divider />
             </div>

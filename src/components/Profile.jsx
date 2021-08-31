@@ -55,6 +55,10 @@ export default function Profile(props) {
         history.push({pathname: "/favorites", state: { "groupName": "My Favorites" }})
     }
 
+    const goToFriends = () =>{
+        history.push("/friends")
+    }
+
     return (
         <div className={classes.root}>
             <List className={classes.backDrop}>
@@ -126,7 +130,7 @@ export default function Profile(props) {
                     </Button>
                 </ListItem> */}
                 <Divider />
-                <ListItem button>
+                <ListItem button onClick={goToFriends}>
                     <Box display="flex" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
                         <Typography variant="body1">
                             Friends

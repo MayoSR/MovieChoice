@@ -14,6 +14,8 @@ import Favorites from "./components/Favorites";
 import ViewAllMovies from "./components/ViewAllMovies";
 import Profile from "./components/Profile";
 import ReviewsList from "./components/ReviewsList";
+import Activity from "./components/Activity";
+import FriendsList from "./components/FriendsList";
 
 function App() {
 
@@ -42,8 +44,11 @@ function App() {
         <Route path="/reviews">
           <ReviewsList />
         </Route>
-        <Route path="/folder">
-
+        <Route path="/activity">
+          <Activity />
+        </Route>
+        <Route path="/friends">
+          <FriendsList />
         </Route>
       </Switch>
       <Navbar />

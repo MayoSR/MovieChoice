@@ -21,7 +21,13 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    useNextVariants: true
+    fontFamily: [
+      'Nunito',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif'
+    ].join(','),
   }
 });
 

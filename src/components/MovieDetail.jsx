@@ -7,6 +7,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import StarIcon from '@material-ui/icons/Star';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import { Box } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
 import TimerIcon from '@material-ui/icons/Timer';
 import StarRateIcon from '@material-ui/icons/StarRate';
@@ -18,7 +19,6 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { Box } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
         left: 0,
         right: 0,
         background: "#1B1B1B",
-        zIndex:100,
+        zIndex: 100,
     },
     innerForedrop: {
         position: "absolute",
@@ -61,14 +61,14 @@ const useStyles = makeStyles({
         right: 0,
 
     },
-    imageForedrop:{
-        zIndex:40,
-        position:"absolute",
-        top:0,
-        bottom:0,
-        left:0,
-        right:0,
-        boxShadow:"-4px 13px 230px 8px rgba(0,0,0,0.75) inset"
+    imageForedrop: {
+        zIndex: 40,
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        boxShadow: "-4px 13px 230px 8px rgba(0,0,0,0.75) inset"
     },
     addToPlaylistText: {
         color: "white",
@@ -79,7 +79,7 @@ const useStyles = makeStyles({
         },
         display: "flex",
         fontSize: "10px",
-        marginBottom:"10px"
+        marginBottom: "10px"
     },
     genreStyle: {
         '& .MuiChip-outlined': {
@@ -200,17 +200,22 @@ const useStyles = makeStyles({
         display: "flex",
         justifyContent: "center",
     },
-    movieUserTabs:{
+    movieUserTabs: {
         position: "absolute",
         top: "40px",
         right: "20px",
         zIndex: "20",
-        display:"flex",
-        flexDirection:"column",
-        '& svg':{
-            color:"#fc2046",
-            marginBottom:"20px",
+        display: "flex",
+        flexDirection: "column",
+        '& svg': {
+            color: "#fc2046",
         }
+    },
+    posterButtons: {
+        padding: "5px",
+        borderRadius: "5px",
+        background: "rgba(0,0,0,0.8)",
+        marginBottom: "10px"
     }
 });
 export default function MovieDetail() {
@@ -248,9 +253,20 @@ export default function MovieDetail() {
                 <ArrowBackIcon fontSize={"large"} />
             </IconButton>
             <div className={classes.movieUserTabs}>
-                <FavoriteBorderIcon />
-                <TvIcon />
-                <PlaylistAddIcon />
+                <IconButton className={classes.posterButtons}>
+
+                    <FavoriteBorderIcon />
+                </IconButton>
+                <IconButton className={classes.posterButtons}>
+
+                    <TvIcon />
+                </IconButton>
+                <IconButton className={classes.posterButtons}>
+
+                    <PlaylistAddIcon />
+                </IconButton>
+
+
             </div>
             <div className={classes.imageBackdrop}>
                 <img src="/images/spiderman.jpg" alt="poster backdrop" />
@@ -283,8 +299,8 @@ export default function MovieDetail() {
                         </Typography>
                     </Grid>
                 </Grid> */}
-                <Grid style={{padding:"0 20px"}}>
-                    <Grid direction="row"  alignItems="center" justifyContent="space-between" className={classes.starStyle}>
+                <Grid style={{ padding: "0 20px" }}>
+                    <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
                         <Box>
                             <StarIcon />
                             <StarIcon />

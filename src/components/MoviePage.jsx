@@ -5,9 +5,27 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import StarRateIcon from '@material-ui/icons/StarRate';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import YouTube from 'react-youtube';
+import IconButton from '@material-ui/core/IconButton';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import StarIcon from '@material-ui/icons/Star';
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import { Box } from '@material-ui/core';
+import TimerIcon from '@material-ui/icons/Timer';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import TvIcon from '@material-ui/icons/Tv';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
 const useStyles = makeStyles({
     root: {
@@ -35,11 +53,14 @@ const useStyles = makeStyles({
             borderRadius: "20px"
         },
     },
-    selectedCategory:{
-        borderRadius:"5px",
+    selectedCategory: {
+        borderRadius: "5px",
         background: "rgba(252, 32, 70,1)",
         color: "white"
-
+    },
+    defaultCategory: {
+        borderRadius: "5px",
+        background: "rgba(0,0,0,0.3)"
     },
     posterDetails: {
         position: "relative",
@@ -82,25 +103,67 @@ const useStyles = makeStyles({
         '& > div:not(:first-child) ': {
             marginLeft: "20px"
         },
+        '& .posterDetails': {
+            width: "100vw",
+            height: "315px",
+            borderRadius: "20px",
+            marginBottom: "20px",
+        },
         '& img': {
             width: "100vw",
-            height: "200px",
+            height: "315px",
             borderRadius: "20px",
             marginBottom: "20px"
         },
     },
     posterText: {
         position: "absolute",
-        background: "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%);",
-        top: 0,
+        background: "radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.4), rgba(0,0,0,0.6), rgba(0,0,0,0.8))",
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: 'flex-start',
         left: 0,
-        height: "60px",
+        top: 0,
+        bottom: 0,
         borderTopLeftRadius: "18px",
         borderTopRightRadius: "18px",
         right: 0,
         paddingLeft: "20px",
         paddingTop: "10px",
-
+        height: "315px",
+        borderRadius: "20px",
+        whiteSpace: "normal",
+        wordWrap: "break-all",
+        flexDirection: "column"
+    },
+    starStyle: {
+        color: "#ffbf00",
+        display: "flex",
+        fontSize: "10px",
+        marginBottom: "10px"
+    },
+    dotSeperator: {
+        fontSize: "8px",
+        marginLeft: "5px",
+        marginRight: "5px",
+        color: "white"
+    },
+    movieUserTabs: {
+        position: "absolute",
+        top: "10px",
+        right: "30px",
+        zIndex: "20",
+        display: "flex",
+        flexDirection: "column",
+        '& svg': {
+            color: "#fc2046",
+        }
+    },
+    posterButtons:{
+        padding:"5px",
+        borderRadius:"5px",
+        background:"rgba(0,0,0,0.8)",
+        marginBottom:"10px"
     }
 
 
@@ -108,15 +171,22 @@ const useStyles = makeStyles({
 export default function MoviePage() {
     const classes = useStyles();
     const history = useHistory();
+    const [selectedCategory, setSelectedCategory] = React.useState({
+        "All": 1, "Romance": 0, "Comedy": 0, "Thriller": 0, "Action": 0, "Adventure": 0, "Science Fiction": 0, "Drama": 0
+    })
 
     const opts = {
         height: '250',
         width: '100%',
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
         },
     };
+
+    const chooseCategory = (category) => {
+
+        setSelectedCategory({ ...selectedCategory, [category]: 1 })
+    }
 
     const getMovieDetails = () => {
         history.push("/detail")
@@ -161,16 +231,28 @@ export default function MoviePage() {
 
                     <div className={classes.wideCategoriesList}>
                         {
-                            ["dominion", "shangchi", "spiderman", "starwars", "venom"].map((movieName) => {
+                            ["interstellar", "starwars", "spiderman", "starwars", "batman", "batman2"].map((movieName) => {
 
                                 return <div className={classes.posterDetails} onClick={getMovieDetails}>
-                                    <div>
-                                        <img src={"/images/wide/" + movieName + ".jpg"} alt={movieName} />
-                                    </div>
+                                    <img src={"/images/wide/" + movieName + ".jpg"} alt={movieName} />
                                     <div className={classes.posterText}>
-                                        <Typography variant="body1" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
-                                            Jurassic World : Dominion
+                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
+                                            Interstellar
                                         </Typography>
+                                        <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
+                                            <Box>
+                                                <StarIcon />
+                                                <StarIcon />
+                                                <StarIcon />
+                                                <StarIcon />
+                                                <StarOutlineIcon />
+                                            </Box>
+                                            <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
+                                            <Typography variant="subtitle2" display="block" className={classes.addToPlaylistText}>
+                                                2017
+                                            </Typography>
+                                        </Grid>
+
                                     </div>
                                 </div>
                             })
@@ -178,11 +260,10 @@ export default function MoviePage() {
                     </div>
                 </Grid>
                 <div className={classes.categoriesList} >
-                    <Chip variant="outlined" label={"All"} className={classes.selectedCategory} />
                     {
-                        ["Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
+                        ["All", "Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
 
-                            return <Chip variant="outlined" style={{borderRadius:"5px",background:"rgba(0,0,0,0.3)"}} label={category} />
+                            return <Chip variant="outlined" className={selectedCategory[category] ? classes.selectedCategory : classes.defaultCategory} label={category} onClick={(e) => chooseCategory(category)} />
                         })
                     }
                 </div>
@@ -229,6 +310,17 @@ export default function MoviePage() {
                                         <Typography variant="body2" display="block" gutterBottom align={"center"}>
                                             {movieName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase())}
                                         </Typography>
+                                    </div>
+                                    <div className={classes.movieUserTabs}>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <FavoriteBorderIcon />
+                                        </IconButton>
+                                        <IconButton className={classes.posterButtons}>
+
+                                            <PlaylistAddIcon />
+                                        </IconButton>
+
                                     </div>
                                 </div>
                             })

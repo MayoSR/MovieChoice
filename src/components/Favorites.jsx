@@ -5,10 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import StarIcon from '@material-ui/icons/Star';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Chip from '@material-ui/core/Chip';
 import TimerIcon from '@material-ui/icons/Timer';
+import StarIcon from '@material-ui/icons/Star';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import YouTube from 'react-youtube';
@@ -28,6 +28,7 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import CloseIcon from '@material-ui/icons/Close';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import WatchedDetail from './WatchedDetail';
 
 const useStyles = makeStyles({
     root: {
@@ -65,10 +66,23 @@ export default function Favorites(props) {
     const classes = useStyles();
     const history = useHistory()
     const location = useLocation();
+    const [open, setOpenState] = React.useState(false);
+    const [groupName, setGroupName] = React.useState("");
+
     const goBack = () => {
         history.go(-1)
     }
 
+    const eventHandle = (e,status,groupName) =>{
+        e.stopPropagation()
+        dialogStatus(status,groupName)
+    }
+
+    const dialogStatus = (status, groupName) => {
+        
+        setOpenState(status)
+        setGroupName(groupName)
+    }
 
     const getMovieDetails = () => {
         history.push("/detail")
@@ -121,8 +135,10 @@ export default function Favorites(props) {
                                     </Button>
 
                                     {location.state.groupName !== "My Favorites" ? <Box display="flex" alignItems="center" style={{color:"#828282"}}>
+                                        <IconButton style={{padding:0,color:"#828282"}} onClick={(e) => eventHandle(e,true,movieName)}>
 
-                                        <VisibilityIcon fontSize={"small"} />
+                                            <VisibilityIcon fontSize={"small"} />
+                                        </IconButton>
                                         <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
                                         <Typography variant="caption" display="block" className={classes.addToPlaylistText} style={{ lineHeight: "0px" }}>
                                             3
@@ -149,6 +165,7 @@ export default function Favorites(props) {
             }
             <br></br>
             <br></br>
+            <WatchedDetail open={open} dialogStatusProp={dialogStatus} groupName={groupName} />
         </div>
     )
 }

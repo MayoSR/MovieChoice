@@ -41,7 +41,14 @@ const useStyles = makeStyles((theme) => ({
             color:"#828282"
         }
 
+    },
+    ip:{
+        '& input,div,label,fieldset':{
+            color:"white",
+            borderColor:"rgb(252, 32, 70)"
+        }
     }
+    
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -87,7 +94,7 @@ export default function GroupDetail(props) {
                 </ListItem>
                 <Divider />
                 <ListItem>
-                    <TextField id="outlined-basic" label="Group Name" variant="outlined" fullWidth size={"small"} />
+                    <TextField id="outlined-basic" label="Group Name" variant="outlined" fullWidth size={"small"} className={classes.ip} />
                 </ListItem>
                 <Divider />
                 <ListItem button>
