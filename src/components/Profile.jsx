@@ -24,9 +24,9 @@ import SecurityIcon from '@material-ui/icons/Security';
 
 const useStyles = makeStyles({
     root: {
-        background: "#1B1B1B",
+        background: "#FFF",
         minHeight: "100vh",
-        color: "white"
+        color: "black"
     },
     dialogBanner: {
 

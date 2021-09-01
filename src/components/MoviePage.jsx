@@ -30,20 +30,22 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
-        padding: "20px",
-        background: "#1B1B1B",
+
+        background: "#FFF",
         '& p,span,h1,h2,h3,h4,h5,h6': {
-            color: "white"
-        }
+            color: "black"
+        },
     },
     categories: {
         width: "100%",
     },
     categoriesList: {
-        marginBottom: "20px",
+        padding: "0px 20px",
         overflowX: "scroll",
+        '&::-webkit-scrollbar': {
+            width: "0px"
+        },
         whiteSpace: "nowrap",
-        paddingBottom: "20px",
         '& > div': {
             marginRight: "10px",
         },
@@ -57,7 +59,7 @@ const useStyles = makeStyles({
     selectedCategory: {
         borderRadius: "5px",
         background: "rgba(252, 32, 70,1)",
-        color: "white"
+        color: "black"
     },
     defaultCategory: {
         borderRadius: "5px",
@@ -66,6 +68,19 @@ const useStyles = makeStyles({
     posterDetails: {
         position: "relative",
         display: "inline-block",
+        '& img': {
+            boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
+        },
+        marginRight:"20px"
+    },
+    widePosterDetails: {
+        position: "relative",
+        display: "inline-block",
+        width:"calc(100vw - 40px)",
+        '& img': {
+            boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
+        },
+        marginRight:"20px"
     },
     movieRating: {
         bottom: "35px",
@@ -75,6 +90,9 @@ const useStyles = makeStyles({
             color: "white",
             textAlign: "center",
             marginBottom: 0,
+        },
+        '& span': {
+            color: "white",
         },
         display: "flex",
         justifyContent: "center",
@@ -98,12 +116,12 @@ const useStyles = makeStyles({
         justifyContent: "center",
     },
     wideCategoriesList: {
-        marginBottom: "20px",
+        padding: "0px 20px",
         overflowX: "scroll",
-        whiteSpace: "nowrap",
-        '& > div:not(:first-child) ': {
-            marginLeft: "20px"
+        '&::-webkit-scrollbar': {
+            width: "0px"
         },
+        whiteSpace: "nowrap",
         '& .posterDetails': {
             width: "100vw",
             height: "315px",
@@ -111,31 +129,29 @@ const useStyles = makeStyles({
             marginBottom: "20px",
         },
         '& img': {
-            width: "100vw",
-            height: "315px",
             borderRadius: "20px",
-            marginBottom: "20px"
+            marginBottom: "20px",
+            boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
         },
     },
     posterText: {
         position: "absolute",
-        background: "radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.4), rgba(0,0,0,0.6), rgba(0,0,0,0.8))",
+        background: "radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.3), rgba(0,0,0,0.4))",
         display: "flex",
         justifyContent: "flex-end",
         alignItems: 'flex-start',
         left: 0,
         top: 0,
-        bottom: 0,
+        bottom: "26px",
         borderTopLeftRadius: "18px",
         borderTopRightRadius: "18px",
         right: 0,
         paddingLeft: "20px",
         paddingTop: "10px",
-        height: "315px",
         borderRadius: "20px",
         whiteSpace: "normal",
         wordWrap: "break-all",
-        flexDirection: "column"
+        flexDirection: "column",
     },
     starStyle: {
         color: "#ffbf00",
@@ -226,8 +242,8 @@ export default function MoviePage() {
                         <Divider />
                     </div>
                 </div> */}
-                <Grid style={{ color: "white", width: "100vw", marginTop: "20px" }}>
-                    <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
+                <Grid style={{ color: "black", width: "100vw", marginTop: "20px" }}>
+                    <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px", paddingLeft: "20px" }}>
                         Coming Soon
                     </Typography>
 
@@ -235,10 +251,10 @@ export default function MoviePage() {
                         {
                             moviesList.map((movie) => {
 
-                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
+                                return <div className={classes.widePosterDetails} onClick={() => getMovieDetails(movie)}>
                                     <img src={"/images/wide/" + movie.poster + ".jpg"} alt={movie.name} />
                                     <div className={classes.posterText}>
-                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
+                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px", color: "white" }}>
                                             {movie.name}
                                         </Typography>
                                         <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
@@ -252,7 +268,7 @@ export default function MoviePage() {
 
                                             </Box>
                                             <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
-                                            <Typography variant="subtitle2" display="block" className={classes.addToPlaylistText}>
+                                            <Typography variant="subtitle2" display="block" style={{ color: "white" }}>
                                                 {movie.releaseYear}
                                             </Typography>
                                         </Grid>
@@ -274,7 +290,7 @@ export default function MoviePage() {
                         }
                     </div>
                 </Grid>
-                <div className={classes.categoriesList} >
+                <div className={classes.categoriesList} style={{marginBottom:"20px"}}>
                     {
                         ["All", "Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
 
@@ -282,7 +298,7 @@ export default function MoviePage() {
                         })
                     }
                 </div>
-                {/* <Grid style={{ color: "white", width: "100vw" }}>
+                {/* <Grid style={{ color: "black", width: "100vw" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
                         Latest Trailer
                     </Typography>
@@ -296,6 +312,7 @@ export default function MoviePage() {
                         direction="row"
                         justifyContent="space-between"
                         alignItems="center"
+                        style={{ paddingLeft: "20px" }}
                     >
 
                         <Typography variant="h5" gutterBottom>
@@ -322,7 +339,7 @@ export default function MoviePage() {
                                         </div>
                                     </div>
                                     <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"}>
+                                        <Typography variant="body2" display="block" gutterBottom align={"center"}  style={{paddingTop:"10px"}}>
                                             {movie.name}
                                         </Typography>
                                     </div>
@@ -342,6 +359,21 @@ export default function MoviePage() {
                         }
                     </div>
                 </div>
+                <Grid
+                    container
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    style={{ paddingLeft: "20px" }}
+                >
+
+                    <Typography variant="h5" gutterBottom>
+                        Your Recent
+                    </Typography>
+                    <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#fc2046" }}>
+                        See all
+                    </Typography>
+                </Grid>
                 <div className={classes.categoriesList}>
                     {
                         moviesList.map((movie) => {
@@ -359,7 +391,7 @@ export default function MoviePage() {
                                     </div>
                                 </div>
                                 <div style={{ "height": "30px", width: "155px" }}>
-                                    <Typography variant="body2" display="block" gutterBottom align={"center"}>
+                                    <Typography variant="body2" display="block" gutterBottom align={"center"} style={{paddingTop:"10px"}}>
                                         {movie.name}
                                     </Typography>
                                 </div>
@@ -379,6 +411,7 @@ export default function MoviePage() {
                     }
                 </div>
             </Grid>
+            <br></br>
             <br></br>
         </div>
     )

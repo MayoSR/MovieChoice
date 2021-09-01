@@ -26,6 +26,7 @@ const theme = createMuiTheme({
       'Roboto',
       '"Helvetica Neue"',
       'Arial',
+      'Ubuntu',
       'sans-serif'
     ].join(','),
   }

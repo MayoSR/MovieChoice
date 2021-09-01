@@ -24,8 +24,8 @@ import ShareIcon from '@material-ui/icons/Share';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight: "100vh",
-        background: "#1B1B1B",
-        color: "white",
+        background: "#FFF",
+        color: "black",
     },
     appBar: {
         position: 'relative',

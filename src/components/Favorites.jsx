@@ -33,20 +33,21 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
-        background: "#1B1B1B",
+        background: "#FFF",
         minHeight: "100vh",
         padding: "20px",
-        color: "white"
+        color: "black"
     },
     posterCardDetails: {
-        background:"#242424",
+        background:"#f5f5f5",
         '& img': {
             width: "100px",
         },
         overflow: "hidden",
         borderRadius: "20px",
         marginBottom: "20px",
-        boxShadow: "10px 10px 15px -14px rgba(0,0,0,0.75);"
+        boxShadow: "10px 10px 15px -14px rgba(0,0,0,0.75);",
+        height:"160px"
     },
     dotSeperator: {
         fontSize: "8px",

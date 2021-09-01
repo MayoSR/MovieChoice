@@ -33,9 +33,9 @@ import {
 
 const useStyles = makeStyles({
     root: {
-        background: "#1B1B1B",
+        background: "#FFF",
         minHeight: "100vh",
-        color: "white",
+        color: "black",
         padding: "20px",
         '& li':{
             padding:"0px 8px"

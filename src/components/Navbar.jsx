@@ -21,10 +21,8 @@ const useStyles = makeStyles({
         boxShadow: '1px -1px 5px 0px rgba(0,0,0,0.15);',
         background:"rgb(252, 32, 70)",
         '& svg,span':{
-            color: "white"
+            color: "black"
         },
-        borderTopRightRadius:"20px",
-        borderTopLeftRadius:"20px",
     },
 });
 

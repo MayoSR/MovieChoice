@@ -21,8 +21,8 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight:"100vh",
-        background: "#1B1B1B",
-        color: "white",
+        background: "#FFF",
+        color: "black",
     },
     appBar: {
         position: 'relative',
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     posterCardDetails: {
-        background:"#242424",
+        background:"#f5f5f5",
         '& img': {
             width: "100px",
         },

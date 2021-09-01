@@ -18,8 +18,8 @@ import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
-        background: "#1B1B1B",
-        color: "white",
+        background: "#FFF",
+        color: "black",
     },
     appBar: {
         position: 'relative',
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
     ip:{
         '& input,div,label,fieldset':{
-            color:"white",
+            color:"black",
             borderColor:"rgb(252, 32, 70)"
         }
     }

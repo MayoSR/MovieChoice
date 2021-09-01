@@ -33,10 +33,10 @@ import GroupDetail from './GroupDetail';
 
 const useStyles = makeStyles({
     root: {
-        background: "#1B1B1B",
+        background: "#FFF",
         minHeight: "100vh",
         padding: "20px",
-        color: "white"
+        color: "black"
     },
     avatarGroup: {
         '& > div': {
@@ -61,7 +61,7 @@ const useStyles = makeStyles({
     },
     ip:{
         '& input,div,label,fieldset':{
-            color:"white",
+            color:"black",
             borderColor:"rgb(252, 32, 70)"
         }
     }

@@ -50,12 +50,12 @@ const useStyles = makeStyles({
         top: "450px",
         left: 0,
         right: 0,
-        background: "#1B1B1B",
+        background: "#FFF",
         zIndex: 100,
     },
     innerForedrop: {
         position: "absolute",
-        background: "#1B1B1B",
+        background: "#FFF",
         zIndex: "100",
         bottom: 0,
         left: 0,
@@ -72,7 +72,7 @@ const useStyles = makeStyles({
         boxShadow: "-4px 13px 230px 8px rgba(0,0,0,0.75) inset"
     },
     addToPlaylistText: {
-        color: "white",
+        color: "black",
     },
     starStyle: {
         '& svg': {
@@ -87,7 +87,7 @@ const useStyles = makeStyles({
             background: "rgba(252, 32, 70,1)"
         },
         '& span': {
-            color: "white"
+            color: "black"
         },
         width: "100%",
         display: "flex",
@@ -97,16 +97,16 @@ const useStyles = makeStyles({
         fontSize: "8px",
         marginLeft: "5px",
         marginRight: "5px",
-        color: "white"
+        color: "black"
     },
     ratingStar: {
         color: "#ffbf00"
     },
     runtime: {
-        color: "white"
+        color: "black"
     },
     categoriesList: {
-        color: "white",
+        color: "black",
         overflowX: "scroll",
         whiteSpace: "nowrap",
         paddingBottom: "20px",
@@ -121,7 +121,7 @@ const useStyles = makeStyles({
         paddingLeft: "20px"
     },
     photosList: {
-        color: "white",
+        color: "black",
         overflowX: "scroll",
         whiteSpace: "nowrap",
         marginBottom: "10px",
@@ -168,15 +168,15 @@ const useStyles = makeStyles({
             padding: 0
         },
         '& span,p': {
-            color: "white"
+            color: "black"
         }
     },
     movieRating: {
         bottom: "35px",
         background: "#fc2046",
-        color: "white",
+        color: "black",
         '& > p': {
-            color: "white",
+            color: "black",
             textAlign: "center",
             marginBottom: 0,
         },
@@ -322,7 +322,7 @@ export default function MovieDetail(props) {
                 </Grid>
 
 
-                <Grid style={{ padding: "20px", color: "white" }}>
+                <Grid style={{ padding: "20px", color: "black" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ padding: "10px 0" }}>
                         About
                     </Typography>
@@ -330,7 +330,7 @@ export default function MovieDetail(props) {
                         {movie.about}
                     </Typography>
                 </Grid>
-                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "white" }}>
+                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "black" }}>
                     Photos
                 </Typography>
                 <div className={classes.photosList}>
@@ -343,7 +343,7 @@ export default function MovieDetail(props) {
                         })
                     }
                 </div>
-                <Grid style={{ color: "white", width: "100vw" }}>
+                <Grid style={{ color: "black", width: "100vw" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px" }}>
                         Watch Trailer
                     </Typography>
@@ -352,7 +352,7 @@ export default function MovieDetail(props) {
                     </div>
                 </Grid>
                 <br></br>
-                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "white" }}>
+                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "black" }}>
                     Cast
                 </Typography>
                 <div className={classes.categoriesList} style={{ paddingLeft: "10px" }}>
@@ -372,7 +372,7 @@ export default function MovieDetail(props) {
                         })
                     }
                 </div>
-                <div className={classes.categories} style={{ padding: "20px", color: "white" }}>
+                <div className={classes.categories} style={{ padding: "20px", color: "black" }}>
                     <Grid
                         container
                         direction="row"
@@ -436,7 +436,7 @@ export default function MovieDetail(props) {
                         </List>
                     </div>
                 </div>
-                <div className={classes.categories} style={{ padding: "20px", color: "white" }}>
+                <div className={classes.categories} style={{ padding: "20px", color: "black" }}>
                     <Grid
                         container
                         direction="row"
