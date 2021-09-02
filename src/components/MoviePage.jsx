@@ -126,7 +126,7 @@ const useStyles = makeStyles({
     },
     posterText: {
         position: "absolute",
-        background: "linear-gradient(0deg, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0) 100%)",
+        background: "linear-gradient(0deg, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0) 100%)",
         display: "flex",
         justifyContent: "flex-end",
         alignItems: 'flex-start',

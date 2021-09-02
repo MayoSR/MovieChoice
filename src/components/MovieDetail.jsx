@@ -50,12 +50,13 @@ const useStyles = makeStyles({
         top: "450px",
         left: 0,
         right: 0,
-        background: "#FFF",
+        background:"#2C2E43",
         zIndex: 100,
+        
     },
     innerForedrop: {
         position: "absolute",
-        background: "#FFF",
+        background:"#2C2E43",
         zIndex: "100",
         bottom: 0,
         left: 0,
