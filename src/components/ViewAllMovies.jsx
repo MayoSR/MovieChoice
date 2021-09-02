@@ -31,10 +31,8 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const useStyles = makeStyles({
     root: {
-        background: "#FFF",
         minHeight: "100vh",
         padding: "20px",
-        color: "black",
     },
     backButton: {
         padding: 0,
@@ -57,10 +55,10 @@ const useStyles = makeStyles({
     },
     movieRating: {
         bottom: "35px",
-        background: "#fc2046",
-        color: "black",
+        background: "#595260",
+        color: "#F4F6FF",
         '& > p': {
-            color: "black",
+            color: "#F4F6FF",
             textAlign: "center",
             marginBottom: 0,
         },

@@ -21,8 +21,7 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight: "100vh",
-        background: "#FFF",
-        color: "black",
+        background:"#2C2E43"
     },
     appBar: {
         position: 'relative',
@@ -47,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     },
     ip: {
         '& input,div,label,fieldset': {
-            color: "black",
-            borderColor: "rgb(252, 32, 70)"
+            color: "#F4F6FF",
+            borderColor: "#595260"
         }
     },
     avatarGroup: {
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
             height: "30px",
             width: "30px",
             fontSize: "14px",
-            backgroundColor: "#fc2046",
+            backgroundColor: "#595260",
             marginRight: "3px",
             border: 0
         },

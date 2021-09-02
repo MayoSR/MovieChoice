@@ -31,10 +31,6 @@ import { useSelector } from 'react-redux';
 const useStyles = makeStyles({
     root: {
 
-        background: "#FFF",
-        '& p,span,h1,h2,h3,h4,h5,h6': {
-            color: "black"
-        },
     },
     categories: {
         width: "100%",
@@ -58,12 +54,11 @@ const useStyles = makeStyles({
     },
     selectedCategory: {
         borderRadius: "5px",
-        background: "rgba(252, 32, 70,1)",
-        color: "black"
+        background: "#595260",
+        color: "#F4F6FF"
     },
     defaultCategory: {
         borderRadius: "5px",
-        background: "rgba(0,0,0,0.3)"
     },
     posterDetails: {
         position: "relative",
@@ -71,28 +66,23 @@ const useStyles = makeStyles({
         '& img': {
             boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
         },
-        marginRight:"20px"
+        marginRight: "20px"
     },
     widePosterDetails: {
         position: "relative",
         display: "inline-block",
-        width:"calc(100vw - 40px)",
+        width: "calc(100vw - 40px)",
         '& img': {
             boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
         },
-        marginRight:"20px"
+        marginRight: "20px"
     },
     movieRating: {
         bottom: "35px",
-        background: "#fc2046",
-        color: "white",
+        background: "#595260",
         '& > p': {
-            color: "white",
             textAlign: "center",
             marginBottom: 0,
-        },
-        '& span': {
-            color: "white",
         },
         display: "flex",
         justifyContent: "center",
@@ -136,7 +126,7 @@ const useStyles = makeStyles({
     },
     posterText: {
         position: "absolute",
-        background: "radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.3), rgba(0,0,0,0.4))",
+        // background: "radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.6))",
         display: "flex",
         justifyContent: "flex-end",
         alignItems: 'flex-start',
@@ -152,6 +142,9 @@ const useStyles = makeStyles({
         whiteSpace: "normal",
         wordWrap: "break-all",
         flexDirection: "column",
+        '& h4': {
+            color: "#2C2E43",
+        }
     },
     starStyle: {
         color: "#ffbf00",
@@ -163,7 +156,6 @@ const useStyles = makeStyles({
         fontSize: "8px",
         marginLeft: "5px",
         marginRight: "5px",
-        color: "white"
     },
     movieUserTabs: {
         position: "absolute",
@@ -172,9 +164,6 @@ const useStyles = makeStyles({
         zIndex: "20",
         display: "flex",
         flexDirection: "column",
-        '& svg': {
-            color: "#fc2046",
-        }
     },
     posterButtons: {
         padding: "5px",
@@ -242,7 +231,7 @@ export default function MoviePage() {
                         <Divider />
                     </div>
                 </div> */}
-                <Grid style={{ color: "black", width: "100vw", marginTop: "20px" }}>
+                <Grid style={{ color: "#F4F6FF", width: "100vw", marginTop: "20px" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px", paddingLeft: "20px" }}>
                         Coming Soon
                     </Typography>
@@ -254,7 +243,7 @@ export default function MoviePage() {
                                 return <div className={classes.widePosterDetails} onClick={() => getMovieDetails(movie)}>
                                     <img src={"/images/wide/" + movie.poster + ".jpg"} alt={movie.name} />
                                     <div className={classes.posterText}>
-                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px", color: "white" }}>
+                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
                                             {movie.name}
                                         </Typography>
                                         <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
@@ -268,7 +257,7 @@ export default function MoviePage() {
 
                                             </Box>
                                             <FiberManualRecordIcon className={classes.dotSeperator} fontSize={"small"} />
-                                            <Typography variant="subtitle2" display="block" style={{ color: "white" }}>
+                                            <Typography variant="subtitle2" display="block">
                                                 {movie.releaseYear}
                                             </Typography>
                                         </Grid>
@@ -290,7 +279,7 @@ export default function MoviePage() {
                         }
                     </div>
                 </Grid>
-                <div className={classes.categoriesList} style={{marginBottom:"20px"}}>
+                <div className={classes.categoriesList} style={{ marginBottom: "20px" }}>
                     {
                         ["All", "Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
 
@@ -298,7 +287,7 @@ export default function MoviePage() {
                         })
                     }
                 </div>
-                {/* <Grid style={{ color: "black", width: "100vw" }}>
+                {/* <Grid style={{ color: "#F4F6FF", width: "100vw" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
                         Latest Trailer
                     </Typography>
@@ -318,7 +307,7 @@ export default function MoviePage() {
                         <Typography variant="h5" gutterBottom>
                             Your Recent
                         </Typography>
-                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#fc2046" }}>
+                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
                             See all
                         </Typography>
                     </Grid>
@@ -339,7 +328,7 @@ export default function MoviePage() {
                                         </div>
                                     </div>
                                     <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"}  style={{paddingTop:"10px"}}>
+                                        <Typography variant="body2" display="block" gutterBottom align={"center"} style={{ paddingTop: "10px" }}>
                                             {movie.name}
                                         </Typography>
                                     </div>
@@ -359,56 +348,59 @@ export default function MoviePage() {
                         }
                     </div>
                 </div>
-                <Grid
-                    container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    style={{ paddingLeft: "20px" }}
-                >
+                <div className={classes.categories} style={{marginTop:"20px"}}>
 
-                    <Typography variant="h5" gutterBottom>
-                        Your Recent
-                    </Typography>
-                    <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#fc2046" }}>
-                        See all
-                    </Typography>
-                </Grid>
-                <div className={classes.categoriesList}>
-                    {
-                        moviesList.map((movie) => {
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        style={{ paddingLeft: "20px" }}
+                    >
 
-                            return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
-                                <div>
-                                    <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
-                                </div>
-                                <div className={classes.ratingContainer}>
-                                    <div className={classes.movieRating}>
-                                        <StarRateIcon />
-                                        <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                            {movie.rating}
+                        <Typography variant="h5" gutterBottom>
+                            Your Recent
+                        </Typography>
+                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
+                            See all
+                        </Typography>
+                    </Grid>
+                    <div className={classes.categoriesList}>
+                        {
+                            moviesList.map((movie) => {
+
+                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
+                                    <div>
+                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
+                                    </div>
+                                    <div className={classes.ratingContainer}>
+                                        <div className={classes.movieRating}>
+                                            <StarRateIcon />
+                                            <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
+                                                {movie.rating}
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                    <div style={{ "height": "30px", width: "155px" }}>
+                                        <Typography variant="body2" display="block" gutterBottom align={"center"} style={{ paddingTop: "10px" }}>
+                                            {movie.name}
                                         </Typography>
                                     </div>
-                                </div>
-                                <div style={{ "height": "30px", width: "155px" }}>
-                                    <Typography variant="body2" display="block" gutterBottom align={"center"} style={{paddingTop:"10px"}}>
-                                        {movie.name}
-                                    </Typography>
-                                </div>
-                                <div className={classes.movieUserTabs}>
-                                    <IconButton className={classes.posterButtons}>
+                                    <div className={classes.movieUserTabs}>
+                                        <IconButton className={classes.posterButtons}>
 
-                                        <FavoriteBorderIcon />
-                                    </IconButton>
-                                    <IconButton className={classes.posterButtons}>
+                                            <FavoriteBorderIcon />
+                                        </IconButton>
+                                        <IconButton className={classes.posterButtons}>
 
-                                        <PlaylistAddIcon />
-                                    </IconButton>
+                                            <PlaylistAddIcon />
+                                        </IconButton>
 
+                                    </div>
                                 </div>
-                            </div>
-                        })
-                    }
+                            })
+                        }
+                    </div>
                 </div>
             </Grid>
             <br></br>

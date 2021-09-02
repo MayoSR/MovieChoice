@@ -21,8 +21,6 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight:"100vh",
-        background: "#FFF",
-        color: "black",
     },
     appBar: {
         position: 'relative',

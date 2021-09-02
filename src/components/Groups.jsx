@@ -33,17 +33,18 @@ import GroupDetail from './GroupDetail';
 
 const useStyles = makeStyles({
     root: {
-        background: "#FFF",
         minHeight: "100vh",
         padding: "20px",
-        color: "black"
+    },
+    '& p,span,label':{
+        fontFamily: "Open Sans, sans-serif"
     },
     avatarGroup: {
         '& > div': {
             height: "20px",
             width: "20px",
             fontSize: "10px",
-            backgroundColor: "#fc2046",
+            backgroundColor: "#595260",
             marginRight:"3px",
             border:0
         },
@@ -51,7 +52,7 @@ const useStyles = makeStyles({
     mainAvatar: {
         height: "50px",
         width: "50px",
-        backgroundColor: "#fc2046",
+        backgroundColor: "#595260",
     },
     dotSeperator: {
         fontSize: "8px",
@@ -61,8 +62,8 @@ const useStyles = makeStyles({
     },
     ip:{
         '& input,div,label,fieldset':{
-            color:"black",
-            borderColor:"rgb(252, 32, 70)"
+            color:"#F4F6FF",
+            borderColor:"#595260"
         }
     }
 });

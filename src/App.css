@@ -1,12 +1,17 @@
-.full-page{
-  height: 100vh;
-  background-color: #27303D;
-}
 
-.full-page > div{
-  width:100%
+
+h1,h2,h3,h4,h5,h6,p,span{
+  color:#B2B1B9
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family: 'Ubuntu', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+#root > div{
+  background:#2C2E43
+}
+
+svg{
+  color:#FFD523
 }

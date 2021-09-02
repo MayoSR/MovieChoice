@@ -72,7 +72,7 @@ const useStyles = makeStyles({
         boxShadow: "-4px 13px 230px 8px rgba(0,0,0,0.75) inset"
     },
     addToPlaylistText: {
-        color: "black",
+        color: "#F4F6FF",
     },
     starStyle: {
         '& svg': {
@@ -84,10 +84,10 @@ const useStyles = makeStyles({
     },
     genreStyle: {
         '& .MuiChip-outlined': {
-            background: "rgba(252, 32, 70,1)"
+            background: "#595260"
         },
         '& span': {
-            color: "black"
+            color: "#F4F6FF"
         },
         width: "100%",
         display: "flex",
@@ -97,16 +97,16 @@ const useStyles = makeStyles({
         fontSize: "8px",
         marginLeft: "5px",
         marginRight: "5px",
-        color: "black"
+        color: "#F4F6FF"
     },
     ratingStar: {
         color: "#ffbf00"
     },
     runtime: {
-        color: "black"
+        color: "#F4F6FF"
     },
     categoriesList: {
-        color: "black",
+        color: "#F4F6FF",
         overflowX: "scroll",
         whiteSpace: "nowrap",
         paddingBottom: "20px",
@@ -121,7 +121,7 @@ const useStyles = makeStyles({
         paddingLeft: "20px"
     },
     photosList: {
-        color: "black",
+        color: "#F4F6FF",
         overflowX: "scroll",
         whiteSpace: "nowrap",
         marginBottom: "10px",
@@ -168,15 +168,15 @@ const useStyles = makeStyles({
             padding: 0
         },
         '& span,p': {
-            color: "black"
+            color: "#F4F6FF"
         }
     },
     movieRating: {
         bottom: "35px",
-        background: "#fc2046",
-        color: "black",
+        background: "#595260",
+        color: "#F4F6FF",
         '& > p': {
-            color: "black",
+            color: "#F4F6FF",
             textAlign: "center",
             marginBottom: 0,
         },
@@ -208,9 +208,6 @@ const useStyles = makeStyles({
         zIndex: "20",
         display: "flex",
         flexDirection: "column",
-        '& svg': {
-            color: "#fc2046",
-        }
     },
     posterButtons: {
         padding: "5px",
@@ -322,15 +319,15 @@ export default function MovieDetail(props) {
                 </Grid>
 
 
-                <Grid style={{ padding: "20px", color: "black" }}>
+                <Grid style={{ padding: "20px", color: "#F4F6FF" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ padding: "10px 0" }}>
                         About
                     </Typography>
-                    <Typography variant="subtitle2" display="block" align={"left"}>
+                    <Typography variant="body2" display="block" align={"left"}>
                         {movie.about}
                     </Typography>
                 </Grid>
-                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "black" }}>
+                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "#F4F6FF" }}>
                     Photos
                 </Typography>
                 <div className={classes.photosList}>
@@ -343,7 +340,7 @@ export default function MovieDetail(props) {
                         })
                     }
                 </div>
-                <Grid style={{ color: "black", width: "100vw" }}>
+                <Grid style={{ color: "#F4F6FF", width: "100vw" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px" }}>
                         Watch Trailer
                     </Typography>
@@ -352,7 +349,7 @@ export default function MovieDetail(props) {
                     </div>
                 </Grid>
                 <br></br>
-                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "black" }}>
+                <Typography variant="h5" display="block" align={"left"} style={{ paddingLeft: "20px", paddingBottom: "10px", color: "#F4F6FF" }}>
                     Cast
                 </Typography>
                 <div className={classes.categoriesList} style={{ paddingLeft: "10px" }}>
@@ -372,7 +369,7 @@ export default function MovieDetail(props) {
                         })
                     }
                 </div>
-                <div className={classes.categories} style={{ padding: "20px", color: "black" }}>
+                <div className={classes.categories} style={{ padding: "20px", color: "#F4F6FF" }}>
                     <Grid
                         container
                         direction="row"
@@ -383,7 +380,7 @@ export default function MovieDetail(props) {
                         <Typography variant="h5" gutterBottom>
                             Reviews
                         </Typography>
-                        <Typography variant="caption" gutterBottom style={{ color: "#fc2046" }} onClick={showReviews}>
+                        <Typography variant="caption" gutterBottom style={{ color: "#595260" }} onClick={showReviews}>
                             See all
                         </Typography>
                     </Grid>
@@ -436,7 +433,7 @@ export default function MovieDetail(props) {
                         </List>
                     </div>
                 </div>
-                <div className={classes.categories} style={{ padding: "20px", color: "black" }}>
+                <div className={classes.categories} style={{ padding: "20px", color: "#F4F6FF" }}>
                     <Grid
                         container
                         direction="row"
@@ -447,7 +444,7 @@ export default function MovieDetail(props) {
                         <Typography variant="h5" gutterBottom>
                             Recommended
                         </Typography>
-                        <Typography variant="caption" gutterBottom style={{ color: "#fc2046" }} onClick={showAllMovies}>
+                        <Typography variant="caption" gutterBottom style={{ color: "#595260" }} onClick={showAllMovies}>
                             See all
                         </Typography>
                     </Grid>

@@ -33,9 +33,7 @@ import {
 
 const useStyles = makeStyles({
     root: {
-        background: "#FFF",
         minHeight: "100vh",
-        color: "black",
         padding: "20px",
         '& li':{
             padding:"0px 8px"
@@ -48,7 +46,7 @@ const useStyles = makeStyles({
         paddingLeft: "30px"
     },
     linkColor: {
-        color: "rgba(252, 32, 70,1)",
+        color: "#FFD523",
     },
     timestamp:{
         color:"#828282"
@@ -82,7 +80,7 @@ export default function Activity(props) {
                             <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between" alignItems="center">
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
                                 <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
-                                    <Typography variant="subtitle2" display="block" align={"left"}>
+                                    <Typography variant="body2" display="block" align={"left"}>
                                         Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                     </Typography>
                                     <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>
@@ -106,7 +104,7 @@ export default function Activity(props) {
                         <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between" alignItems="center">
                             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
                             <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
-                                <Typography variant="subtitle2" display="block" align={"left"}>
+                                <Typography variant="body2" display="block" align={"left"}>
                                     Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                 </Typography>
                                 <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>
@@ -128,7 +126,7 @@ export default function Activity(props) {
                         <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between" alignItems="center">
                             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
                             <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
-                                <Typography variant="subtitle2" display="block" align={"left"}>
+                                <Typography variant="body2" display="block" align={"left"}>
                                     Recently watched <Link className={classes.linkColor} to="/detail">Captain America : Civil War</Link>
                                 </Typography>
                                 <Typography variant="caption" display="block" align={"left"} className={classes.timestamp}>

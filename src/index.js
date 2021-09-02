@@ -13,7 +13,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#fff',
-      main: 'rgb(252, 32, 70)',
+      main: '#595260',
       dark: '#000'
     },
     secondary: {
@@ -23,7 +23,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: [
       'Nunito',
-      'Roboto',
+      'Open Sans',
       '"Helvetica Neue"',
       'Arial',
       'Ubuntu',

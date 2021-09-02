@@ -33,10 +33,8 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     root: {
-        background: "#FFF",
         minHeight: "100vh",
         padding: "20px",
-        color: "black"
     },
     posterCardDetails: {
         background:"#f5f5f5",
