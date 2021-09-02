@@ -55,6 +55,9 @@ const useStyles = makeStyles({
     selectedCategory: {
         borderRadius: "5px",
         background: "#595260",
+        '& span':{
+            color:"#FFD523",
+        }
     },
     defaultCategory: {
         borderRadius: "5px",
@@ -74,7 +77,7 @@ const useStyles = makeStyles({
         '& img': {
             boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
         },
-        marginRight: "20px"
+        marginRight: "30px"
     },
     movieRating: {
         bottom: "35px",
@@ -231,7 +234,7 @@ export default function MoviePage() {
                 </div> */}
                 <Grid style={{ color: "#F4F6FF", width: "100vw", marginTop: "20px" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px", paddingLeft: "20px" }}>
-                        Coming Soon
+                        Most Popular
                     </Typography>
 
                     <div className={classes.wideCategoriesList}>
@@ -303,7 +306,7 @@ export default function MoviePage() {
                     >
 
                         <Typography variant="h5" gutterBottom>
-                            Your Recent
+                            Trending
                         </Typography>
                         <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
                             See all
@@ -357,7 +360,7 @@ export default function MoviePage() {
                     >
 
                         <Typography variant="h5" gutterBottom>
-                            Your Recent
+                            Recently Viewed
                         </Typography>
                         <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
                             See all

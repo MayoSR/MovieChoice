@@ -21,23 +21,23 @@ const useStyles = makeStyles({
         position: 'fixed',
         zIndex: "120",
         bottom: 0,
-        boxShadow: '1px -1px 5px 0px rgba(0,0,0,0.15);',
+        boxShadow: '-1px -10px 21px -16px rgba(0,0,0,0.75)',
     },
     createButton: {
         "& svg": {
-            fontSize: "54px"
+            fontSize: "48px"
         },
         padding: 0,
-        height: "75px",
-        width: "75px",
+        height: "60px",
+        width: "60px",
         marginLeft: "-1px"
     },
     centerButton: {
         position: "absolute",
-        height: "75px",
-        width: "75px",
-        background: "#2C2E43",
-        top: "-25px",
+        height: "60px",
+        width: "60px",
+        background: "#3c3f5d",
+        top: "-15px",
         borderRadius: "50%",
         borderTop: "1px solid #FFD523",
         borderLeft: "1px solid #FFD523",
