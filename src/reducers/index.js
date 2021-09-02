@@ -36,14 +36,14 @@ const initialState = {
 
         },
         {
-            id: 1001,
-            name:"The Social Network",
-            poster:"social_network",
-            youtube: "lB95KLmpLR4",
-            rating: 7.7,
-            categories:["Biography","Drama"],
-            about: "As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.",
-            cast: ["andrew_garfield","jesse_eisenberg","anne_hathaway","zendaya"],
+            id: 1005,
+            name:"Now You See Me",
+            poster:"now_you_see_me",
+            youtube: "KzJNYYkkhzc",
+            rating: 7.2,
+            categories:["Crime","Mystery","Thriller"],
+            about: "An F.B.I. Agent and an Interpol Detective track a team of illusionists who pull off bank heists during their performances, and reward their audiences with the money.",
+            cast: ["jesse_eisenberg","mark_ruffalo","michael_caine","morgan_freeman","woody_harrelson"],
             reviews: [
                 {
                     review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
@@ -66,8 +66,8 @@ const initialState = {
             ],
             photosCount: 3,
             recommended:[],
-            runtime:"2h 14mins",
-            releaseYear: 2010
+            runtime:"1h 52mins",
+            releaseYear: 2013
 
         },
         {
@@ -176,14 +176,14 @@ const initialState = {
 
         },
         {
-            id: 1005,
-            name:"Now You See Me",
-            poster:"now_you_see_me",
-            youtube: "KzJNYYkkhzc",
-            rating: 7.2,
-            categories:["Crime","Mystery","Thriller"],
-            about: "An F.B.I. Agent and an Interpol Detective track a team of illusionists who pull off bank heists during their performances, and reward their audiences with the money.",
-            cast: ["jesse_eisenberg","mark_ruffalo","michael_caine","morgan_freeman","woody_harrelson"],
+            id: 1001,
+            name:"The Social Network",
+            poster:"social_network",
+            youtube: "lB95KLmpLR4",
+            rating: 7.7,
+            categories:["Biography","Drama"],
+            about: "As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.",
+            cast: ["andrew_garfield","jesse_eisenberg","anne_hathaway","zendaya"],
             reviews: [
                 {
                     review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
@@ -206,8 +206,8 @@ const initialState = {
             ],
             photosCount: 3,
             recommended:[],
-            runtime:"1h 52mins",
-            releaseYear: 2013
+            runtime:"2h 14mins",
+            releaseYear: 2010
 
         },
         {

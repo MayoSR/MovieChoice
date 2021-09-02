@@ -37,7 +37,7 @@ const useStyles = makeStyles({
         padding: "20px",
     },
     posterCardDetails: {
-        background:"#f5f5f5",
+        background:"#1e202e",
         '& img': {
             width: "100px",
         },
@@ -60,7 +60,16 @@ const useStyles = makeStyles({
     backButton: {
         padding: 0
     },
+    watchBtnStyle:{ 
+        fontSize: "0.55rem",
+        '& span':{
+            color:"#FFD523",
+        },
+        borderColor:"#FFD523",
+        marginLeft:"10px"
+    }
 });
+
 
 export default function Favorites(props) {
     const classes = useStyles();
@@ -131,7 +140,7 @@ export default function Favorites(props) {
                                 </Box>
                                 <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between">
 
-                                    <Button variant="outlined" color="primary" size={"small"} style={{ fontSize: "0.55rem" }}>
+                                    <Button variant="outlined" size={"small"} className={classes.watchBtnStyle}>
                                         Watched
                                     </Button>
 
