@@ -126,25 +126,24 @@ const useStyles = makeStyles({
     },
     posterText: {
         position: "absolute",
-        // background: "radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.6))",
+        background: "linear-gradient(0deg, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0) 100%)",
         display: "flex",
         justifyContent: "flex-end",
         alignItems: 'flex-start',
         left: 0,
-        top: 0,
         bottom: "26px",
-        borderTopLeftRadius: "18px",
-        borderTopRightRadius: "18px",
+        borderBottomLeftRadius: "18px",
+        borderBottomRightRadius: "18px",
         right: 0,
         paddingLeft: "20px",
         paddingTop: "10px",
-        borderRadius: "20px",
         whiteSpace: "normal",
         wordWrap: "break-all",
         flexDirection: "column",
         '& h4': {
-            color: "#2C2E43",
-        }
+            color: "#B2B1B9",
+        },
+        height:"50%"
     },
     starStyle: {
         color: "#ffbf00",
@@ -243,9 +242,6 @@ export default function MoviePage() {
                                 return <div className={classes.widePosterDetails} onClick={() => getMovieDetails(movie)}>
                                     <img src={"/images/wide/" + movie.poster + ".jpg"} alt={movie.name} />
                                     <div className={classes.posterText}>
-                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
-                                            {movie.name}
-                                        </Typography>
                                         <Grid direction="row" alignItems="center" justifyContent="space-between" className={classes.starStyle}>
                                             <Box>
                                                 {
@@ -261,6 +257,9 @@ export default function MoviePage() {
                                                 {movie.releaseYear}
                                             </Typography>
                                         </Grid>
+                                        <Typography variant="h4" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
+                                            {movie.name}
+                                        </Typography>
 
                                     </div>
                                     <div className={classes.movieUserTabs} style={{ right: "10px" }}>
