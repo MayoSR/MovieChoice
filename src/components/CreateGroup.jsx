@@ -18,7 +18,7 @@ import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
-        background:"#2C2E43"
+        background: "#2C2E43"
     },
     appBar: {
         position: 'relative',
@@ -35,49 +35,75 @@ const useStyles = makeStyles((theme) => ({
         width: "200px",
         borderRadius: "50%"
     },
-    listItemTextStyle:{
-        '& p':{
-            color:"#828282"
+    listItemTextStyle: {
+        '& p': {
+            color: "#828282"
         }
 
     },
-    ip:{
-        '& input,div,label,fieldset':{
-            color:"#F4F6FF",
-            borderColor:"#595260"
+    ip: {
+        '& input,div,label,fieldset': {
+            color: "#F4F6FF",
+            borderColor: "#595260"
         }
+    },
+    removeFriendBtn: {
+        position: "absolute",
+        padding:0,
+        height:"12px",
+        width:"12px",
+        bottom:"0px",
+        right:"0px",
+        background:"#FFD523",
+        '& svg':{
+            color:"#595260",
+            fontSize:"12px"
+        }
+    },
+    groupMembers:{
+        paddingTop:"20px",
+        overflowX:"scroll",
+        '&::-webkit-scrollbar': {
+            width: "0px"
+        },
     }
-    
+
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function GroupDetail(props) {
+export default function CreateGroup(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
     const handleClose = () => {
         props.dialogStatusProp(false)
     };
 
+    const [groupList, setGroupList] = React.useState([])
+
+    const createFriendAvatar = (person) => {
+        setGroupList([...groupList,person])
+    }
+
+    const removeFriend = (friend) => {
+        setGroupList(groupList.filter(person => person !== friend))
+    }
+
     return (
         <Dialog open={props.open} onClose={handleClose} TransitionComponent={Transition} fullScreen>
             <AppBar className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                    <IconButton edge="start" color="inherit" onClick={() => { props.setDialogState(false) }} aria-label="close">
                         <CloseIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title} style={{color:"#FFD523"}}>
+                    <Typography variant="h6" className={classes.title} style={{ color: "#FFD523" }}>
                         {props.groupName}
                     </Typography>
                     <Button autoFocus color="inherit" onClick={handleClose}>
-                        save
+                        Create
                     </Button>
                 </Toolbar>
             </AppBar>
@@ -96,27 +122,37 @@ export default function GroupDetail(props) {
                     <TextField id="outlined-basic" label="Group Name" variant="outlined" fullWidth size={"small"} className={classes.ip} />
                 </ListItem>
                 <Divider />
-                <ListItem button>
-                    <Button variant="outlined" color="secondary" fullWidth>
-                        Leave Group
-                    </Button>
+                <ListItem className={classes.groupMembers}>
+                    {groupList.map((person) => {
+                        return <Box display="flex" style={{ marginRight: "20px", position: "relative" }}>
+                            <Avatar alt={person} src="/static/images/avatar/1.jpg" className={classes.large} />
+                            <IconButton className={classes.removeFriendBtn} onClick={() => { removeFriend(person) }}>
+                                <CloseIcon />
+                            </IconButton>
+                        </Box>
+                    })}
                 </ListItem>
                 <Divider />
                 <ListItem>
                     <Typography variant="h5">
-                        Members
+                        Friends
                     </Typography>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                    <TextField id="outlined-basic" label="Search Friend" variant="outlined" fullWidth size={"small"} className={classes.ip} />
                 </ListItem>
                 <Divider />
                 {["Anne George", "Beth Chase", "Cathy Jones", "John Joestar", "James Rodriguez", "Jimmy Neutron"].map((person) => {
 
                     return (
                         <>
-                            <ListItem button>
+                            <ListItem button onClick={() => createFriendAvatar(person)}>
                                 <Box display="flex" style={{ marginRight: "20px" }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+
                                 </Box>
-                                <ListItemText primary={person} secondary="Admin" className={classes.listItemTextStyle}  />
+                                <ListItemText primary={person} secondary={person.replace(" ","")+"63"} className={classes.listItemTextStyle} />
                             </ListItem>
                             <Divider />
                         </>

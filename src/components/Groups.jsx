@@ -105,7 +105,7 @@ export default function Groups() {
                             <Box display="flex" alignItems="center" onClick={() => openGroup(value)}>
                                 <Avatar className={classes.mainAvatar}>OP</Avatar>
                                 <Box display="flex" flexDirection="column" style={{ padding: "20px" }}>
-                                    <Typography variant="subtitle1" display="block" align={"left"}>
+                                    <Typography variant="subtitle1" display="block" align={"left"} style={{color:"#FFD523"}}>
                                         {value}
                                     </Typography>
                                     <Box display="flex" alignItems="center" >

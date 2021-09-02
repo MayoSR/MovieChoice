@@ -55,7 +55,6 @@ const useStyles = makeStyles({
     selectedCategory: {
         borderRadius: "5px",
         background: "#595260",
-        color: "#F4F6FF"
     },
     defaultCategory: {
         borderRadius: "5px",

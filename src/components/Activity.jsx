@@ -65,7 +65,7 @@ export default function Activity(props) {
 
     return (
         <div className={classes.root}>
-            <Typography variant="h6">
+            <Typography variant="h6" style={{color:"#FFD523"}}>
                 Activity
             </Typography>
             <List className={classes.backDrop}>
