@@ -27,6 +27,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import TvIcon from '@material-ui/icons/Tv';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import { useSelector } from 'react-redux';
+import PosterSlider from './PosterSlider';
 
 const useStyles = makeStyles({
     root: {
@@ -62,14 +63,6 @@ const useStyles = makeStyles({
     defaultCategory: {
         borderRadius: "5px",
     },
-    posterDetails: {
-        position: "relative",
-        display: "inline-block",
-        '& img': {
-            boxShadow: "-4px 10px 22px -8px rgba(0,0,0,0.75);",
-        },
-        marginRight: "20px"
-    },
     widePosterDetails: {
         position: "relative",
         display: "inline-block",
@@ -79,34 +72,6 @@ const useStyles = makeStyles({
         },
         marginRight: "30px"
     },
-    movieRating: {
-        bottom: "35px",
-        background: "#595260",
-        '& > p': {
-            textAlign: "center",
-            marginBottom: 0,
-        },
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        '& svg': {
-            color: "#ffbf00",
-            height: "20px",
-            width: "20px"
-        },
-        borderTopRightRadius: "5px",
-        borderTopLeftRadius: "5px",
-    },
-    ratingContainer: {
-        position: "absolute",
-        bottom: "36px",
-        left: "-20px",
-        right: 0,
-        marginLeft: "auto",
-        marginRight: "auto",
-        display: "flex",
-        justifyContent: "center",
-    },
     wideCategoriesList: {
         padding: "0px 20px",
         overflowX: "scroll",
@@ -114,12 +79,6 @@ const useStyles = makeStyles({
             width: "0px"
         },
         whiteSpace: "nowrap",
-        '& .posterDetails': {
-            width: "100vw",
-            height: "315px",
-            borderRadius: "20px",
-            marginBottom: "20px",
-        },
         '& img': {
             borderRadius: "20px",
             marginBottom: "20px",
@@ -211,27 +170,6 @@ export default function MoviePage() {
                 direction="row"
                 alignItems="center"
             >
-                {/* <div className={classes.categories}>
-                    <div style={{ paddingTop: "10px", paddingBottom: "20px" }}>
-
-                        <Divider />
-                    </div>
-                    <Typography variant="h5" gutterBottom>
-                        Categories
-                    </Typography>
-                    <div className={classes.categoriesList}>
-                        {
-                            ["Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
-
-                                return <Chip variant="outlined" label={category} />
-                            })
-                        }
-                    </div>
-                    <div>
-
-                        <Divider />
-                    </div>
-                </div> */}
                 <Grid style={{ color: "#F4F6FF", width: "100vw", marginTop: "20px" }}>
                     <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px", paddingLeft: "20px" }}>
                         Most Popular
@@ -288,121 +226,8 @@ export default function MoviePage() {
                         })
                     }
                 </div>
-                {/* <Grid style={{ color: "#F4F6FF", width: "100vw" }}>
-                    <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
-                        Latest Trailer
-                    </Typography>
-                    <div style={{ width: "100%", overflow: "hidden" }}>
-                        <YouTube videoId="Nt9L1jCKGnE" opts={opts} />
-                    </div>
-                </Grid> */}
-                <div className={classes.categories}>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        style={{ paddingLeft: "20px" }}
-                    >
-
-                        <Typography variant="h5" gutterBottom>
-                            Trending
-                        </Typography>
-                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
-                            See all
-                        </Typography>
-                    </Grid>
-                    <div className={classes.categoriesList}>
-                        {
-                            moviesList.map((movie) => {
-
-                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
-                                    <div>
-                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
-                                    </div>
-                                    <div className={classes.ratingContainer}>
-                                        <div className={classes.movieRating}>
-                                            <StarRateIcon />
-                                            <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                {movie.rating}
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"} style={{ paddingTop: "10px" }}>
-                                            {movie.name}
-                                        </Typography>
-                                    </div>
-                                    <div className={classes.movieUserTabs}>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <FavoriteBorderIcon />
-                                        </IconButton>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <PlaylistAddIcon />
-                                        </IconButton>
-
-                                    </div>
-                                </div>
-                            })
-                        }
-                    </div>
-                </div>
-                <div className={classes.categories} style={{marginTop:"20px"}}>
-
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        style={{ paddingLeft: "20px" }}
-                    >
-
-                        <Typography variant="h5" gutterBottom>
-                            Recently Viewed
-                        </Typography>
-                        <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260" }}>
-                            See all
-                        </Typography>
-                    </Grid>
-                    <div className={classes.categoriesList}>
-                        {
-                            moviesList.map((movie) => {
-
-                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
-                                    <div>
-                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
-                                    </div>
-                                    <div className={classes.ratingContainer}>
-                                        <div className={classes.movieRating}>
-                                            <StarRateIcon />
-                                            <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                {movie.rating}
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"} style={{ paddingTop: "10px" }}>
-                                            {movie.name}
-                                        </Typography>
-                                    </div>
-                                    <div className={classes.movieUserTabs}>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <FavoriteBorderIcon />
-                                        </IconButton>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <PlaylistAddIcon />
-                                        </IconButton>
-
-                                    </div>
-                                </div>
-                            })
-                        }
-                    </div>
-                </div>
+                <PosterSlider header="Trending" />
+                <PosterSlider header="Recently Viewed" />
             </Grid>
             <br></br>
             <br></br>

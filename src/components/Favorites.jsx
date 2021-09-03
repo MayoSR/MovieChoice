@@ -94,8 +94,8 @@ export default function Favorites(props) {
         setGroupName(groupName)
     }
 
-    const getMovieDetails = () => {
-        history.push("/detail")
+    const getMovieDetails = (movie) => {
+        history.push({pathname:"/detail",state:{"movie":movie}})
     }
 
     return (
@@ -118,7 +118,7 @@ export default function Favorites(props) {
             {
                 moviesList.map((movie) => {
 
-                    return <Box display="flex" direction="row" className={classes.posterCardDetails} onClick={getMovieDetails} justifyContent="space-between">
+                    return <Box display="flex" direction="row" className={classes.posterCardDetails} onClick={() => getMovieDetails(movie)} justifyContent="space-between">
                         <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
                         <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
                             <Box display="flex" justifyContent="space-between">
@@ -145,7 +145,7 @@ export default function Favorites(props) {
                                     </Button>
 
                                     {location.state.groupName !== "My Favorites" ? <Box display="flex" alignItems="center" style={{color:"#828282"}}>
-                                        <IconButton style={{padding:0,color:"#828282"}} onClick={(e) => eventHandle(e,true,movie.name)}>
+                                        <IconButton style={{padding:0,color:"#828282"}} onClick={(e) => eventHandle(e,true,movie.poster)}>
 
                                             <VisibilityIcon fontSize={"small"} />
                                         </IconButton>

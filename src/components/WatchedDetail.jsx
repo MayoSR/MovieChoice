@@ -21,6 +21,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight:"100vh",
+        background:"#2C2E43",
     },
     appBar: {
         position: 'relative',
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     posterCardDetails: {
-        background:"#f5f5f5",
+        background:"#1e202e",
         '& img': {
             width: "100px",
         },
@@ -100,7 +101,7 @@ export default function WatchedDetail(props) {
             <List className={classes.backDrop}>
                 <ListItem button>
                 <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between">
-                        <img src={"/images/" + props.groupName + ".jpg"} alt={props.groupName} />
+                        <img src={"/images/posters/" + props.groupName + ".jpg"} alt={props.groupName} />
                         <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Box display="flex" flexDirection="column">
@@ -148,7 +149,7 @@ export default function WatchedDetail(props) {
                                 <Box display="flex" style={{ marginRight: "20px" }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
                                 </Box>
-                                <ListItemText primary={person} secondary="Admin" className={classes.listItemTextStyle}  />
+                                <ListItemText primary={person} secondary={person.split(" ").join("")+63} className={classes.listItemTextStyle}  />
                             </ListItem>
                             <Divider />
                         </>

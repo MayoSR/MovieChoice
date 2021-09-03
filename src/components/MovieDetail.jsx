@@ -26,6 +26,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import TvIcon from '@material-ui/icons/Tv';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import { useSelector } from 'react-redux';
+import PosterSlider from './PosterSlider';
 
 const useStyles = makeStyles({
     root: {
@@ -434,58 +435,7 @@ export default function MovieDetail(props) {
                         </List>
                     </div>
                 </div>
-                <div className={classes.categories} style={{ padding: "20px", color: "#F4F6FF" }}>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-
-                        <Typography variant="h5" gutterBottom>
-                            Recommended
-                        </Typography>
-                        <Typography variant="caption" gutterBottom style={{ color: "#595260" }} onClick={showAllMovies}>
-                            See all
-                        </Typography>
-                    </Grid>
-                    <div className={classes.moviesCategoriesList}>
-                        {
-                            moviesList.map((movie) => {
-
-                                return <div className={classes.posterDetails} onClick={() => getMovieDetails(movie)}>
-                                    <div>
-                                        <img src={"/images/posters/" + movie.poster + ".jpg"} alt={movie.poster} />
-                                    </div>
-                                    <div className={classes.ratingContainer}>
-                                        <div className={classes.movieRating}>
-                                            <StarRateIcon />
-                                            <Typography variant="caption" display="block" style={{ paddingTop: "1px", paddingRight: "8px" }}>
-                                                {movie.rating}
-                                            </Typography>
-                                        </div>
-                                    </div>
-                                    <div style={{ "height": "30px", width: "155px" }}>
-                                        <Typography variant="body2" display="block" gutterBottom align={"center"}>
-                                            {movie.name}
-                                        </Typography>
-                                    </div>
-                                    <div className={classes.movieUserTabs}>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <FavoriteBorderIcon />
-                                        </IconButton>
-                                        <IconButton className={classes.posterButtons}>
-
-                                            <PlaylistAddIcon />
-                                        </IconButton>
-
-                                    </div>
-                                </div>
-                            })
-                        }
-                    </div>
-                </div>
+                <PosterSlider header="Recommended" />
 
                 <br></br>
                 <br></br>
