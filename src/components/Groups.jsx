@@ -1,34 +1,15 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import StarIcon from '@material-ui/icons/Star';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import Chip from '@material-ui/core/Chip';
-import TimerIcon from '@material-ui/icons/Timer';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import YouTube from 'react-youtube';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import { Box } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useHistory } from 'react-router-dom';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import GroupDetail from './GroupDetail';
 
 const useStyles = makeStyles({
@@ -70,17 +51,8 @@ const useStyles = makeStyles({
 export default function Groups() {
     const classes = useStyles();
     const history = useHistory()
-    const [sortParam, setSortParam] = React.useState('Last Added');
     const [open, setOpenState] = React.useState(false);
     const [groupName, setGroupName] = React.useState("");
-
-    const handleChange = (event) => {
-        setSortParam(event.target.value);
-    };
-
-    const goBack = () => {
-        history.go(-1)
-    }
 
     const openGroup = (groupName) => {
         history.push({ pathname: "/favorites", state: { "groupName": groupName } })

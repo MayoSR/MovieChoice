@@ -1,33 +1,10 @@
-import React from 'react'
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import StarIcon from '@material-ui/icons/Star';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import Chip from '@material-ui/core/Chip';
-import TimerIcon from '@material-ui/icons/Timer';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import YouTube from 'react-youtube';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import { Box } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import ShareIcon from '@material-ui/icons/Share';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import CloseIcon from '@material-ui/icons/Close';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const useStyles = makeStyles({
     root: {
@@ -90,7 +67,6 @@ const useStyles = makeStyles({
 export default function Favorites(props) {
     const classes = useStyles();
     const history = useHistory()
-    const location = useLocation();
     const goBack = () => {
         history.go(-1)
     }

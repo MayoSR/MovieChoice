@@ -1,42 +1,13 @@
-import React from 'react';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import { useHistory } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
-import MovieFilterIcon from '@material-ui/icons/MovieFilter';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-import AddIcon from '@material-ui/icons/Add';
-import { Box, IconButton } from '@material-ui/core';
-import CreateGroup from './CreateGroup';
-import Chip from '@material-ui/core/Chip';
-import Divider from '@material-ui/core/Divider';
+import { IconButton } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import YouTube from 'react-youtube';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import StarIcon from '@material-ui/icons/Star';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import TimerIcon from '@material-ui/icons/Timer';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import TvIcon from '@material-ui/icons/Tv';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -120,8 +91,6 @@ const useStyles = makeStyles({
 
 export default function PosterSlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState('movies');
-    const [openGroup, setOpenGroup] = React.useState(false)
     const moviesList = useSelector(state => state.movies)
     let history = useHistory();
 
@@ -130,10 +99,6 @@ export default function PosterSlider(props) {
     }
 
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-        history.push("/" + newValue);
-    };
 
     const showAllMovies = () => {
         history.push("/all")

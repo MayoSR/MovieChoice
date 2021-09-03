@@ -1,31 +1,27 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { Box } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import StarIcon from '@material-ui/icons/Star';
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import { Box } from '@material-ui/core';
-import Chip from '@material-ui/core/Chip';
-import TimerIcon from '@material-ui/icons/Timer';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import YouTube from 'react-youtube';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useHistory, useLocation } from 'react-router-dom';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import TvIcon from '@material-ui/icons/Tv';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
-import { useSelector } from 'react-redux';
+import StarIcon from '@material-ui/icons/Star';
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import TimerIcon from '@material-ui/icons/Timer';
+import TvIcon from '@material-ui/icons/Tv';
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import YouTube from 'react-youtube';
 import PosterSlider from './PosterSlider';
 
 const useStyles = makeStyles({
@@ -223,13 +219,11 @@ export default function MovieDetail(props) {
     const history = useHistory()
     const location = useLocation();
     const movie = location.state.movie
-    const moviesList = useSelector(state => state.movies)
 
     const opts = {
         height: '250',
         width: '100%',
         playerVars: {
-            // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
         },
     };
@@ -238,16 +232,8 @@ export default function MovieDetail(props) {
         history.push("/reviews")
     }
 
-    const getMovieDetails = (movie) => {
-        history.push({ pathname: "/detail", state: { "movie": movie } })
-    }
-
     const goBack = () => {
         history.go(-1)
-    }
-
-    const showAllMovies = () => {
-        history.push("/all")
     }
 
     return (
@@ -437,6 +423,7 @@ export default function MovieDetail(props) {
                 </div>
                 <PosterSlider header="Recommended" />
 
+                <br></br>
                 <br></br>
                 <br></br>
             </div>

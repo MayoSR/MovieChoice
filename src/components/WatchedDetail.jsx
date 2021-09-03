@@ -1,22 +1,21 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Slide from '@material-ui/core/Slide';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
-import Box from '@material-ui/core/Box';
-import Avatar from '@material-ui/core/Avatar';
-import TextField from '@material-ui/core/TextField';
-import StarRateIcon from '@material-ui/icons/StarRate';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import StarRateIcon from '@material-ui/icons/StarRate';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
@@ -73,12 +72,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function WatchedDetail(props) {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
     const handleClose = () => {
         props.dialogStatusProp(false)
     };
@@ -131,12 +124,6 @@ export default function WatchedDetail(props) {
                             <Typography variant="caption" display="block" align={"left"}>
                                 Discussions for a sequel to Spider-Man: Homecoming began by October 2016, and the project was confirmed later that year.
                             </Typography>
-                            {/* <Divider style={{ marginBottom: "10px", marginTop: "5px" }} />
-                            <Box display="flex">
-                                <Typography variant="caption" display="block" align={"left"}>
-                                    Liked by Anne, Jane and 5 others
-                                </Typography>
-                            </Box> */}
                         </Box>
                     </Box>
                 </ListItem>

@@ -1,6 +1,111 @@
 const initialState = {
     movies:[
         {
+            id: 1004,
+            name:"Venom",
+            poster:"venom",
+            youtube: "u9Mv98Gr5pY",
+            rating: 8.4,
+            categories:["Action","Adventure","Sci-Fi"],
+            about: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.",
+            cast: ["tom_hardy","tom_holland","anne_hathaway","robert_downey_jr","chris_evans"],
+            reviews: [
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+            ],
+            photosCount: 3,
+            recommended:[],
+            runtime:"1h 52mins",
+            releaseYear: 2018
+
+        },
+        {
+            id: 1010,
+            name:"X-Men: Days of Future Past",
+            poster:"days_of_future_past",
+            youtube: "6acRHWnfZAE",
+            rating: 7.9,
+            categories:["Action","Adventure","Sci-Fi"],
+            about: "The X-Men send Wolverine to the past in a desperate effort to change history and prevent an event that results in doom for both humans and mutants.",
+            cast: ["hugh_jackman","emma_stone","jennifer_lawrence"],
+            reviews: [
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+            ],
+            photosCount: 3,
+            recommended:[],
+            runtime:"2h 12mins",
+            releaseYear: 2014
+
+        },
+        {
+            id: 1006,
+            name:"The Avengers",
+            poster:"the_avengers",
+            youtube: "eOrNdBpGMv8",
+            rating: 8.0,
+            categories:["Action","Adventure","Sci-Fi"],
+            about: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+            cast: ["robert_downey_jr","chris_evans","mark_ruffalo","chris_pratt",],
+            reviews: [
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+                {
+                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
+                    rating: 9.4,
+                    reviewDays: 6,
+                    reviewer: "Jane Doe",
+                },
+            ],
+            photosCount: 3,
+            recommended:[],
+            runtime:"2h 23mins",
+            releaseYear: 2012
+
+        },
+        {
             id: 1000,
             name:"Spider-Man: Homecoming",
             poster:"homecoming",
@@ -140,41 +245,7 @@ const initialState = {
             releaseYear: 2012
 
         },
-        {
-            id: 1004,
-            name:"Venom",
-            poster:"venom",
-            youtube: "u9Mv98Gr5pY",
-            rating: 8.4,
-            categories:["Action","Adventure","Sci-Fi"],
-            about: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.",
-            cast: ["tom_hardy","tom_holland","anne_hathaway","robert_downey_jr","chris_evans"],
-            reviews: [
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-            ],
-            photosCount: 3,
-            recommended:[],
-            runtime:"1h 52mins",
-            releaseYear: 2018
-
-        },
+        
         {
             id: 1001,
             name:"The Social Network",
@@ -210,41 +281,7 @@ const initialState = {
             releaseYear: 2010
 
         },
-        {
-            id: 1006,
-            name:"The Avengers",
-            poster:"the_avengers",
-            youtube: "eOrNdBpGMv8",
-            rating: 8.0,
-            categories:["Action","Adventure","Sci-Fi"],
-            about: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-            cast: ["robert_downey_jr","chris_evans","mark_ruffalo","chris_pratt",],
-            reviews: [
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-            ],
-            photosCount: 3,
-            recommended:[],
-            runtime:"2h 23mins",
-            releaseYear: 2012
-
-        },
+        
         {
             id: 1007,
             name:"Jurassic World: Fallen Kingdom",
@@ -350,41 +387,7 @@ const initialState = {
             releaseYear: 2012
 
         },
-        {
-            id: 1010,
-            name:"X-Men: Days of Future Past",
-            poster:"days_of_future_past",
-            youtube: "6acRHWnfZAE",
-            rating: 7.9,
-            categories:["Action","Adventure","Sci-Fi"],
-            about: "The X-Men send Wolverine to the past in a desperate effort to change history and prevent an event that results in doom for both humans and mutants.",
-            cast: ["hugh_jackman","emma_stone","jennifer_lawrence"],
-            reviews: [
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-                {
-                    review:"Really enjoyed the first two films, both contained great scenes/action, acting and the two best villains of the films. Was mixed on the third film, which wasn't that bad but suffered mainly from bloat",
-                    rating: 9.4,
-                    reviewDays: 6,
-                    reviewer: "Jane Doe",
-                },
-            ],
-            photosCount: 3,
-            recommended:[],
-            runtime:"2h 12mins",
-            releaseYear: 2014
-
-        },
+        
     ],
 }
 

@@ -1,32 +1,17 @@
+import { Box } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import YouTube from 'react-youtube';
 import IconButton from '@material-ui/core/IconButton';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import StarIcon from '@material-ui/icons/Star';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
-import { Box } from '@material-ui/core';
-import TimerIcon from '@material-ui/icons/Timer';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import TvIcon from '@material-ui/icons/Tv';
-import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import PosterSlider from './PosterSlider';
 
 const useStyles = makeStyles({
@@ -142,14 +127,6 @@ export default function MoviePage() {
         "All": 1, "Romance": 0, "Comedy": 0, "Thriller": 0, "Action": 0, "Adventure": 0, "Science Fiction": 0, "Drama": 0
     })
 
-    const opts = {
-        height: '250',
-        width: '100%',
-        playerVars: {
-            autoplay: 1,
-        },
-    };
-
     const chooseCategory = (category) => {
 
         setSelectedCategory({ ...selectedCategory, [category]: 1 })
@@ -159,9 +136,6 @@ export default function MoviePage() {
         history.push({ pathname: "/detail", state: { "movie": movie } })
     }
 
-    const showAllMovies = () => {
-        history.push("/all")
-    }
 
     return (
         <div className={classes.root}>
@@ -229,6 +203,7 @@ export default function MoviePage() {
                 <PosterSlider header="Trending" />
                 <PosterSlider header="Recently Viewed" />
             </Grid>
+            <br></br>
             <br></br>
             <br></br>
         </div>

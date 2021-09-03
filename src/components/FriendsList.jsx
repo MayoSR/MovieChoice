@@ -1,22 +1,14 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
-import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import CancelIcon from '@material-ui/icons/Cancel';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
@@ -66,15 +58,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FriendsList(props) {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        props.dialogStatusProp(false)
-    };
 
     return (
         <List className={classes.backDrop}>
