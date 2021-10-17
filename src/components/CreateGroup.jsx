@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         marginLeft: theme.spacing(2),
         flex: 1,
-        color:"#B2B1B9"
+        color: "#B2B1B9"
     },
     dialogBanner: {
 
@@ -50,20 +50,20 @@ const useStyles = makeStyles((theme) => ({
     },
     removeFriendBtn: {
         position: "absolute",
-        padding:0,
-        height:"12px",
-        width:"12px",
-        bottom:"0px",
-        right:"0px",
-        background:"#FFD523",
-        '& svg':{
-            color:"#595260",
-            fontSize:"12px"
+        padding: 0,
+        height: "12px",
+        width: "12px",
+        bottom: "0px",
+        right: "0px",
+        background: "#FFD523",
+        '& svg': {
+            color: "#595260",
+            fontSize: "12px"
         }
     },
-    groupMembers:{
-        paddingTop:"20px",
-        overflowX:"scroll",
+    groupMembers: {
+        paddingTop: "20px",
+        overflowX: "scroll",
         '&::-webkit-scrollbar': {
             width: "0px"
         },
@@ -84,7 +84,7 @@ export default function CreateGroup(props) {
     const [groupList, setGroupList] = React.useState([])
 
     const createFriendAvatar = (person) => {
-        setGroupList([...groupList,person])
+        setGroupList([...groupList, person])
     }
 
     const removeFriend = (friend) => {
@@ -124,7 +124,7 @@ export default function CreateGroup(props) {
                 <ListItem className={classes.groupMembers}>
                     {groupList.map((person) => {
                         return <Box display="flex" style={{ marginRight: "20px", position: "relative" }}>
-                            <Avatar alt={person} src="/static/images/avatar/1.jpg" className={classes.large} />
+                            <Avatar alt={person} src="https://bit.ly/dan-abramov" className={classes.large} />
                             <IconButton className={classes.removeFriendBtn} onClick={() => { removeFriend(person) }}>
                                 <CloseIcon />
                             </IconButton>
@@ -148,10 +148,10 @@ export default function CreateGroup(props) {
                         <>
                             <ListItem button onClick={() => createFriendAvatar(person)}>
                                 <Box display="flex" style={{ marginRight: "20px" }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                                    <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} />
 
                                 </Box>
-                                <ListItemText primary={person} secondary={person.replace(" ","")+"63"} className={classes.listItemTextStyle} />
+                                <ListItemText primary={person} secondary={person.replace(" ", "") + "63"} className={classes.listItemTextStyle} />
                             </ListItem>
                             <Divider />
                         </>

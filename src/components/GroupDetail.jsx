@@ -18,7 +18,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
-        background:"#2C2E43"
+        background: "#2C2E43"
     },
     appBar: {
         position: 'relative',
@@ -35,19 +35,19 @@ const useStyles = makeStyles((theme) => ({
         width: "200px",
         borderRadius: "50%"
     },
-    listItemTextStyle:{
-        '& p':{
-            color:"#828282"
+    listItemTextStyle: {
+        '& p': {
+            color: "#828282"
         }
 
     },
-    ip:{
-        '& input,div,label,fieldset':{
-            color:"#F4F6FF",
-            borderColor:"#595260"
+    ip: {
+        '& input,div,label,fieldset': {
+            color: "#F4F6FF",
+            borderColor: "#595260"
         }
     }
-    
+
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -68,7 +68,7 @@ export default function GroupDetail(props) {
                     <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
                         <CloseIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title} style={{color:"#FFD523"}}>
+                    <Typography variant="h6" className={classes.title} style={{ color: "#FFD523" }}>
                         {props.groupName}
                     </Typography>
                     <Button autoFocus color="inherit" onClick={handleClose}>
@@ -109,9 +109,9 @@ export default function GroupDetail(props) {
                         <>
                             <ListItem button>
                                 <Box display="flex" style={{ marginRight: "20px" }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                                    <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} />
                                 </Box>
-                                <ListItemText primary={person} secondary={person.split(" ").join("")+63} className={classes.listItemTextStyle}  />
+                                <ListItemText primary={person} secondary={person.split(" ").join("") + 63} className={classes.listItemTextStyle} />
                             </ListItem>
                             <Divider />
                         </>

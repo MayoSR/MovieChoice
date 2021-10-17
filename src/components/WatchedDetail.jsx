@@ -19,8 +19,8 @@ import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
     backDrop: {
-        minHeight:"100vh",
-        background:"#2C2E43",
+        minHeight: "100vh",
+        background: "#2C2E43",
     },
     appBar: {
         position: 'relative',
@@ -33,19 +33,19 @@ const useStyles = makeStyles((theme) => ({
 
     },
     groupDP: {
-        marginBottom:"20px",
-        '& img':{
-            height:"200px"
+        marginBottom: "20px",
+        '& img': {
+            height: "200px"
         }
     },
-    listItemTextStyle:{
-        '& p':{
-            color:"#828282"
+    listItemTextStyle: {
+        '& p': {
+            color: "#828282"
         }
 
     },
     posterCardDetails: {
-        background:"#1e202e",
+        background: "#1e202e",
         '& img': {
             width: "100px",
         },
@@ -93,15 +93,15 @@ export default function WatchedDetail(props) {
             </AppBar>
             <List className={classes.backDrop}>
                 <ListItem button>
-                <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between">
+                    <Box display="flex" direction="row" className={classes.posterCardDetails} justifyContent="space-between">
                         <img src={"/images/posters/" + props.groupName + ".jpg"} alt={props.groupName} />
                         <Box display="flex" flexDirection="column" style={{ "margin": "10px" }}>
                             <Box display="flex" justifyContent="space-between">
                                 <Box display="flex" flexDirection="column">
                                     <Typography variant="subtitle1" display="block" align={"left"}>
-                                    {props.groupName !== undefined ? props.groupName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase()) : ""}
+                                        {props.groupName !== undefined ? props.groupName.split("_").join(" ").replace(/(^|\s)[A-Za-zÀ-ÖØ-öø-ÿ]/g, c => c.toUpperCase()) : ""}
                                     </Typography>
-                                    <Box display="flex" alignItems="center" justifyContent="flex-start" style={{color:"#828282"}}>
+                                    <Box display="flex" alignItems="center" justifyContent="flex-start" style={{ color: "#828282" }}>
                                         <StarRateIcon fontSize={"medium"} className={classes.ratingStar} />
                                         <Typography variant="caption" display="block" className={classes.addToPlaylistText}>
                                             4.1
@@ -134,9 +134,9 @@ export default function WatchedDetail(props) {
                         <>
                             <ListItem button>
                                 <Box display="flex" style={{ marginRight: "20px" }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                                    <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} />
                                 </Box>
-                                <ListItemText primary={person} secondary={person.split(" ").join("")+63} className={classes.listItemTextStyle}  />
+                                <ListItemText primary={person} secondary={person.split(" ").join("") + 63} className={classes.listItemTextStyle} />
                             </ListItem>
                             <Divider />
                         </>

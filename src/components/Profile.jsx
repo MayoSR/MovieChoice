@@ -29,8 +29,8 @@ const useStyles = makeStyles({
         borderRadius: "50%",
         boxShadow: "1px 0px 21px 4px rgba(0,0,0,0.27)"
     },
-    nestedPadding:{
-        paddingLeft:"30px"
+    nestedPadding: {
+        paddingLeft: "30px"
     }
 });
 
@@ -43,10 +43,10 @@ export default function Profile(props) {
 
 
     const goToFavorites = () => {
-        history.push({pathname: "/favorites", state: { "groupName": "My Favorites" }})
+        history.push({ pathname: "/favorites", state: { "groupName": "My Favorites" } })
     }
 
-    const goToFriends = () =>{
+    const goToFriends = () => {
         history.push("/friends")
     }
 
@@ -54,10 +54,10 @@ export default function Profile(props) {
         <div className={classes.root}>
             <List className={classes.backDrop}>
                 <ListItem button>
-                    <Box display="flex" flexDirection="column" alignItems="center" style={{ width: "100%",margin:"20px 0" }}>
+                    <Box display="flex" flexDirection="column" alignItems="center" style={{ width: "100%", margin: "20px 0" }}>
                         <Box style={{ overflow: "hidden" }} className={classes.groupDP}>
 
-                            <img src="/images/actors/tom_holland.jpg" alt="group dp" />
+                            <img src="/images/actors/placeholder.jpg" alt="group dp" />
                         </Box>
 
                     </Box>

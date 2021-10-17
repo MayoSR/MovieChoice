@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         minHeight: "100vh",
         padding: "20px",
     },
-    '& p,span,label':{
+    '& p,span,label': {
         fontFamily: "Open Sans, sans-serif"
     },
     avatarGroup: {
@@ -26,8 +26,8 @@ const useStyles = makeStyles({
             width: "20px",
             fontSize: "10px",
             backgroundColor: "#595260",
-            marginRight:"3px",
-            border:0
+            marginRight: "3px",
+            border: 0
         },
     },
     mainAvatar: {
@@ -41,10 +41,10 @@ const useStyles = makeStyles({
         marginRight: "5px",
         color: "#828282"
     },
-    ip:{
-        '& input,div,label,fieldset':{
-            color:"#F4F6FF",
-            borderColor:"#595260"
+    ip: {
+        '& input,div,label,fieldset': {
+            color: "#F4F6FF",
+            borderColor: "#595260"
         }
     }
 });
@@ -77,12 +77,12 @@ export default function Groups() {
                             <Box display="flex" alignItems="center" onClick={() => openGroup(value)}>
                                 <Avatar className={classes.mainAvatar}>OP</Avatar>
                                 <Box display="flex" flexDirection="column" style={{ padding: "20px" }}>
-                                    <Typography variant="subtitle1" display="block" align={"left"} style={{color:"#FFD523"}}>
+                                    <Typography variant="subtitle1" display="block" align={"left"} style={{ color: "#FFD523" }}>
                                         {value}
                                     </Typography>
                                     <Box display="flex" alignItems="center" >
                                         <AvatarGroup max={4} className={classes.avatarGroup}>
-                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                            <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" />
                                             <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
                                             <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
                                             <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />

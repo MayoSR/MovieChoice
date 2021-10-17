@@ -77,17 +77,17 @@ export default function ReviewsList(props) {
                     return (
                         <>
                             <ListItem button>
-                                <Box display="flex" flexDirection="column" style={{paddingTop:"10px"}}>
+                                <Box display="flex" flexDirection="column" style={{ paddingTop: "10px" }}>
                                     <Box display="flex">
                                         <Box display="flex" style={{ marginRight: "20px" }}>
-                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                                            <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} />
                                         </Box>
                                         <Box display="flex" alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
                                             <Box display="flex" flexDirection="column">
                                                 <Typography variant="body1" display="block" align={"left"}>
                                                     {person}
                                                 </Typography>
-                                                <Typography variant="caption" display="block" align={"left"} style={{"color":"#828282"}}>
+                                                <Typography variant="caption" display="block" align={"left"} style={{ "color": "#828282" }}>
                                                     2 days ago
                                                 </Typography>
                                             </Box>

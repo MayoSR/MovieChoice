@@ -47,13 +47,13 @@ const useStyles = makeStyles({
         top: "450px",
         left: 0,
         right: 0,
-        background:"#2C2E43",
+        background: "#2C2E43",
         zIndex: 100,
-        
+
     },
     innerForedrop: {
         position: "absolute",
-        background:"#2C2E43",
+        background: "#2C2E43",
         zIndex: "100",
         bottom: 0,
         left: 0,
@@ -378,7 +378,7 @@ export default function MovieDetail(props) {
                                 return <>
                                     <ListItem button alignItems="flex-start" style={{ marginBottom: "10px" }} onClick={showReviews}>
                                         <ListItemAvatar>
-                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                            <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" />
                                         </ListItemAvatar>
                                         <ListItemText
                                             primary={

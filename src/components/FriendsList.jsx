@@ -13,7 +13,7 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
     backDrop: {
         minHeight: "100vh",
-        background:"#2C2E43"
+        background: "#2C2E43"
     },
     appBar: {
         position: 'relative',
@@ -78,15 +78,6 @@ export default function FriendsList(props) {
                 </Box>
             </ListItem>
             <Divider />
-            {/* <ListItem >
-                <AvatarGroup max={4} className={classes.avatarGroup}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                    <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-                    <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-                    <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-                    <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
-                </AvatarGroup>
-            </ListItem> */}
             <ListItem display="flex" alignItems="center">
                 <Typography variant="h5" display="block" gutterBottom>
                     Friend Requests
@@ -100,8 +91,8 @@ export default function FriendsList(props) {
                         <ListItem>
                             <Box display="flex" style={{ width: "100%", padding: "8px 0px" }} justifyContent="space-between" >
                                 <Box display="flex" alignItems="center">
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} style={{ marginRight: "20px" }} />
-                                    <ListItemText primary={person} secondary={person+"63"} className={classes.listItemTextStyle} />
+                                    <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} style={{ marginRight: "20px" }} />
+                                    <ListItemText primary={person} secondary={person + "63"} className={classes.listItemTextStyle} />
                                 </Box>
                                 <Box display="flex" alignItems="center">
                                     <Button variant="outlined" color="primary" size={"small"} style={{ fontSize: "0.55rem" }}>
@@ -115,7 +106,7 @@ export default function FriendsList(props) {
                 )
 
             })}
-            
+
             <ListItem>
                 <Button variant="outlined" color="secondary" fullWidth size={"small"}>
                     See more
@@ -135,8 +126,8 @@ export default function FriendsList(props) {
                         <ListItem>
                             <Box display="flex" style={{ width: "100%", padding: "8px 0px" }} justifyContent="space-between" >
                                 <Box display="flex" alignItems="center">
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} style={{ marginRight: "20px" }} />
-                                    <ListItemText primary={person} secondary={person+"63"} className={classes.listItemTextStyle} />
+                                    <Avatar alt="Remy Sharp" src="https://bit.ly/dan-abramov" className={classes.large} style={{ marginRight: "20px" }} />
+                                    <ListItemText primary={person} secondary={person + "63"} className={classes.listItemTextStyle} />
                                 </Box>
                                 <Box display="flex" alignItems="center">
                                     <Button variant="outlined" color="primary" size={"small"} style={{ fontSize: "0.55rem" }}>
