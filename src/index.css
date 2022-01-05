@@ -12,6 +12,7 @@ code {
 /* width */
 ::-webkit-scrollbar {
   height: 10px !important;
+  width:5px !important;
   margin:20px !important;
 }
 
