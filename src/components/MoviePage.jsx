@@ -41,8 +41,8 @@ const useStyles = makeStyles({
     selectedCategory: {
         borderRadius: "5px",
         background: "#595260",
-        '& span':{
-            color:"#FFD523",
+        '& span': {
+            color: "#FFD523",
         }
     },
     defaultCategory: {
@@ -89,7 +89,7 @@ const useStyles = makeStyles({
         '& h4': {
             color: "#B2B1B9",
         },
-        height:"50%"
+        height: "50%"
     },
     starStyle: {
         color: "#ffbf00",
