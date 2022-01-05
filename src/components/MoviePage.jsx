@@ -22,7 +22,6 @@ const useStyles = makeStyles({
         width: "100%",
     },
     categoriesList: {
-        padding: "0px 20px",
         overflowX: "scroll",
         '&::-webkit-scrollbar': {
             width: "0px"
@@ -58,7 +57,6 @@ const useStyles = makeStyles({
         marginRight: "30px"
     },
     wideCategoriesList: {
-        padding: "0px 20px",
         overflowX: "scroll",
         '&::-webkit-scrollbar': {
             width: "0px"
@@ -138,14 +136,14 @@ export default function MoviePage() {
 
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{ paddingLeft: "20px" }}>
             <Grid
                 container
                 direction="row"
                 alignItems="center"
             >
                 <Grid style={{ color: "#F4F6FF", width: "100vw", marginTop: "20px" }}>
-                    <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px", paddingLeft: "20px" }}>
+                    <Typography variant="h5" display="block" align={"left"} style={{ paddingBottom: "10px" }}>
                         Most Popular
                     </Typography>
 
@@ -192,7 +190,7 @@ export default function MoviePage() {
                         }
                     </div>
                 </Grid>
-                <div className={classes.categoriesList} style={{ marginBottom: "20px" }}>
+                <div className={classes.categoriesList} style={{ margin: "20px 0px", paddingBottom: "20px" }}>
                     {
                         ["All", "Romance", "Comedy", "Thriller", "Action", "Adventure", "Science Fiction", "Drama"].map((category) => {
 
@@ -200,7 +198,10 @@ export default function MoviePage() {
                         })
                     }
                 </div>
-                <PosterSlider header="Trending" />
+                <Box mb="20px">
+
+                    <PosterSlider header="Trending" />
+                </Box>
                 <PosterSlider header="Recently Viewed" />
             </Grid>
             <br></br>

@@ -11,8 +11,8 @@ code {
 
 /* width */
 ::-webkit-scrollbar {
-  height: 5px !important;
-  margin:0px 20px !important;
+  height: 10px !important;
+  margin:20px !important;
 }
 
 /* Track */

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         width: "100%",
     },
     categoriesList: {
-        padding: "0px 20px",
+        paddingBottom: "20px",
         overflowX: "scroll",
         '&::-webkit-scrollbar': {
             width: "0px"
@@ -111,13 +111,13 @@ export default function PosterSlider(props) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-                style={{ paddingLeft: "20px" }}
+
             >
 
                 <Typography variant="h5" gutterBottom>
                     {props.header}
                 </Typography>
-                <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260",marginRight:"20px" }}>
+                <Typography variant="caption" gutterBottom onClick={showAllMovies} style={{ color: "#595260", marginRight: "20px" }}>
                     See all
                 </Typography>
             </Grid>
